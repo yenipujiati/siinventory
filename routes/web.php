@@ -18,9 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'index'])->name('auth.index');
+
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'verify'])->name('auth.verify');
 
-
-
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth:admin');
+
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth:superadmin');
 
