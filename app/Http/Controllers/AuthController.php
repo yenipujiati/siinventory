@@ -19,9 +19,9 @@ class AuthController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt(['email'=>$request->email, 'password'=>$request->password, 'role'=>'admin'])) {
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/admin/dashboard');
         }else if (Auth::guard('superadmin')->attempt(['email'=>$request->email, 'password'=>$request->password, 'role'=>'superadmin'])) {
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/superadmin/dashboard');
         }else{
             //saat user yang diminta tidak ditemukan
             return redirect('/login')->with('Pesan','Data yang anda masukkan salah');

@@ -19,7 +19,17 @@ Route::get('/login', [App\Http\Controllers\AuthController::class, 'index'])->nam
 
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'verify'])->name('auth.verify');
 
-Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth:admin');
+Route::group(['middleware'=>'auth:admin'], function () {
+   Route::prefix('admin')->group(function () {
+       Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('admin.dashboard.index');
+   });
+});
 
-Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth:superadmin');
+
+Route::group(['middleware'=>'auth:superadmin'], function () {
+    Route::prefix('superadmin')->group(function () {
+        Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('superadmin.dashboard.index');
+    });
+});
+
 

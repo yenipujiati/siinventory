@@ -21,11 +21,11 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard('admin')->check()) {
 
-            return redirect('/dashboard');
+            return redirect('/admin/dashboard');
 
         } else if (Auth::guard('superadmin')->check()) {
 
-            return redirect('/dashboard');
+            return redirect('/superadmin/dashboard');
 
         }
 
