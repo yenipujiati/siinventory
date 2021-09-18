@@ -22,6 +22,9 @@ class AuthController extends Controller
             return redirect()->intended('/dashboard');
         }else if (Auth::guard('superadmin')->attempt(['email'=>$request->email, 'password'=>$request->password, 'role'=>'superadmin'])) {
             return redirect()->intended('/dashboard');
+        }else{
+            //saat user yang diminta tidak ditemukan
+            return redirect('/login')->with('Pesan','Data yang anda masukkan salah');
         }
     }
 }

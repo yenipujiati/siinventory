@@ -14,6 +14,14 @@
 
         </div>
         <div class="col-sm">
+
+            {{--pesan error--}}
+            @if(\Session::has('Pesan'))
+                <div class="alert alert-warning" role="alert">
+                    {{Session::get('Pesan')}}
+                </div>
+            @endif
+
             <form method="post" action="{{route('auth.verify')}}">
                 @csrf
                 <div class="form-group">
