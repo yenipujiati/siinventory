@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Util\Helper;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -9,6 +10,11 @@ class AuthController extends Controller
 {
     public function index() {
         //halaman login
+
+//        $date = "09-06-2001";
+//        dd(Helper::dateConverter($date));
+//        dd($date);
+
         return view('login');
     }
 

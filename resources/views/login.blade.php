@@ -40,6 +40,9 @@
 
                 <p></p>
                 <button type="submit" class="btn btn-primary">Submit</button>
+
+{{--                <p>&nbsp;</p>--}}
+{{--                <span>{{Helper::dateConverter(date('m/d/Y'))}}</span>--}}
             </form>
 
         </div>
