@@ -36,5 +36,19 @@ class DatabaseSeeder extends Seeder
             'email' => 'Udin.k19@student.ukrimuniversity.ac.id',
             'password' => Hash::make('password'),
         ]);
+
+        DB::table('admins')->insert([
+            'name' => 'Berkati Telaumbanua',
+            'role' => 'superadmin',
+            'email' => 'berkati.t19@student.ukrimuniversity.ac.id',
+            'password' => Hash::make('password'),
+        ]);
+
+        DB::table('admins')->insert([
+            'name' => 'makmur',
+            'role' => 'superadmin',
+            'email' => 'makmur.m19@student.ukrimuniversity.ac.id',
+            'password' => Hash::make('password'),
+        ]);
     }
 }
