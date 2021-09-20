@@ -27,4 +27,13 @@ class AuthController extends Controller
             return redirect('/login')->with('Pesan','Data yang anda masukkan salah');
         }
     }
+
+    public function logout() {
+        if (Auth::guard('admin')->check()) {
+            Auth::guard('admin')->logout();
+        }elseif (Auth::guard('superadmin')->check()) {
+            Auth::guard('superadmin')->logout();
+        }
+        return redirect('/login');
+    }
 }

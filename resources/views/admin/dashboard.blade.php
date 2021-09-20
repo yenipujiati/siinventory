@@ -5,7 +5,9 @@
 </head>
 <body>
 
-Ini Adalah Dashboard
+Ini Adalah Dashboard Admin.
+
+<a href="{{route('auth.logout')}}">Logout</a>
 
 </body>
 </html>
