@@ -7,6 +7,6 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
     public function index(){
-        return view('superadmin/dashboard');
+        return view('superadmin/content/dashboard');
     }
 }
