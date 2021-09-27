@@ -23,14 +23,14 @@ Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->n
 
 Route::group(['middleware'=>'auth:admin'], function () {
    Route::prefix('admin')->group(function () {
-       Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard.index');
+       Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
    });
 });
 
 
 Route::group(['middleware'=>'auth:superadmin'], function () {
     Route::prefix('superadmin')->group(function () {
-        Route::get('/dashboard', [App\Http\Controllers\SuperAdmin\DashboardController::class, 'index'])->name('superadmin.dashboard.index');
+        Route::get('/dashboard', [App\Http\Controllers\SuperAdmin\DashboardController::class, 'index'])->name('dashboard.index');
     });
 });
 

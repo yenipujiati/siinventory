@@ -27,9 +27,28 @@ class DatabaseSeeder extends Seeder
         DB::table('admins')->insert([
             'name' => 'Emmard Yedija',
             'role' => 'superadmin',
-            'email' => 'emmard.y9@student.ukrimuniversity.ac.id',
+            'email' => 'emmard.y19@student.ukrimuniversity.ac.id',
+            'password' => Hash::make('password'),
+        ]);
+        DB::table('admins')->insert([
+            'name' => 'Udin',
+            'role' => 'admin',
+            'email' => 'Udin.k19@student.ukrimuniversity.ac.id',
             'password' => Hash::make('password'),
         ]);
 
+        DB::table('admins')->insert([
+            'name' => 'Berkati Telaumbanua',
+            'role' => 'superadmin',
+            'email' => 'berkati.t19@student.ukrimuniversity.ac.id',
+            'password' => Hash::make('password'),
+        ]);
+
+        DB::table('admins')->insert([
+            'name' => 'makmur',
+            'role' => 'superadmin',
+            'email' => 'makmur.m19@student.ukrimuniversity.ac.id',
+            'password' => Hash::make('password'),
+        ]);
     }
 }
