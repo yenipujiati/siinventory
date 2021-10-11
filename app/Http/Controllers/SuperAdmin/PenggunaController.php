@@ -18,8 +18,10 @@ class PenggunaController extends Controller
         Session::put('title', 'Data Admin');
 
         $pengguna = Pengguna::all();
+//        dd($pengguna);
 
         return view('superadmin/content/pengguna/list', compact('pengguna'));
+//        return view('superadmin/content/pengguna/list');
     }
 
     public function add()
