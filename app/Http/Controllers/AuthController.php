@@ -24,9 +24,9 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password,'role'=>'admin'])) {
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password,'role'=>'admin', 'status'=>1])) {
             return redirect()->intended('/admin/dashboard');
-        } else if (Auth::guard('superadmin')->attempt(['email' => $request->email, 'password' => $request->password,'role'=>'superadmin'])) {
+        } else if (Auth::guard('superadmin')->attempt(['email' => $request->email, 'password' => $request->password,'role'=>'superadmin', 'status'=>1])) {
             return redirect()->intended('/superadmin/dashboard');
         }else{
             //user tidak ditemukan
