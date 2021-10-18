@@ -26,7 +26,7 @@
         <td>{{$row->email}}</td>
         <td>{{Helper::active($row->status)}}</td>
         <td>
-            <a href ="{{route('storage_file',$row->image)}}" target="_blank">{{route('storage_file',$row->image)}}</a>
+            <a href ="{{route('storage_file',$row->image)}}" target="_blank">Lihat Foto</a>
         </td>
         <td>
             <a href= "{{route('superadmin.pengguna.edit',$row->id)}}" data-toogle="tooltip" data-placement="top" title="Edit" class ="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a> 

@@ -41,14 +41,13 @@ class PenggunaController extends Controller
         //2.getHasNameFromFile
 
         $request->file('image')->store('public');
-        $nameImage = $request->file('image')->hasName();
+        $nameImage = $request->file('image')->hashName();
         $pengguna = new Pengguna();
         $pengguna->name =$request->name;
         $pengguna->role =$request->role;
         $pengguna->email =$request->email;
         $pengguna->password = bcrypt('12345678');
-        $pengguna->image = $nameImage;
-
+        $pengguna->image = $nameImage;  
         try {
             $pengguna->save();
             //pesan notifikasi sukses
@@ -84,6 +83,7 @@ class PenggunaController extends Controller
         $pengguna->role = $request->role;
         $pengguna->email = $request->email;
         $pengguna->status = $request->status;
+        $pengguna->image = $request->image;
 
         try {
             $pengguna->save();
