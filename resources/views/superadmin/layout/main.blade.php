@@ -320,7 +320,7 @@
                     </div>
                 @endif
 
-                {{--sintaks yield digunakan agar dpt buat content di view luar--}}                
+                {{--sintaks yield digunakan agar dpt buat content di view luar--}}
                 @yield('content')
 
             </div>
@@ -383,7 +383,7 @@
 <script>
     $(function () {
         $('[data-toogle="tooltip"]').tooltip()
-        
+
     })
 </script>
 

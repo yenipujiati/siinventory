@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::post('/pengguna/store', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'store'])->name('superadmin.pengguna.store');
 
         Route::get('/pengguna/edit/{id}', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'edit'])->name('superadmin.pengguna.edit');
-        Route::post('/pengguna/update', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'update'])->name('superadmin.pengguna.update');
+        Route::post('/pengguna/update/{id}', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'update'])->name('superadmin.pengguna.update');
 
         Route::get('/pengguna/delete/{id}', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'delete'])->name('superadmin.pengguna.delete');
 

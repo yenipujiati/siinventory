@@ -1,7 +1,7 @@
 @extends('superadmin/layout/main')
 @section('content')
 
-    <form action="{{route('superadmin.pengguna.update')}}" method="post">
+    <form action="{{route('superadmin.pengguna.update', $pengguna->id)}}" method="post">
         @csrf
         <div class="form-group">
             <label >Nama</label>

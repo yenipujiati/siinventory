@@ -47,7 +47,7 @@ class PenggunaController extends Controller
         $pengguna->role =$request->role;
         $pengguna->email =$request->email;
         $pengguna->password = bcrypt('12345678');
-        $pengguna->image = $nameImage;  
+        $pengguna->image = $nameImage;
         try {
             $pengguna->save();
             //pesan notifikasi sukses
@@ -73,12 +73,12 @@ class PenggunaController extends Controller
 
     public function edit($id){
         Session::put('title', 'Edit Data Admin');
-        $pengguna =Pengguna::FindOrFail($id);
+        $pengguna = Pengguna::FindOrFail($id);
         return view('superadmin/content/pengguna/edit', compact('pengguna'));
     }
 
-    public function update(Request $request){
-        $pengguna= Pengguna ::findOrFail($request->id);
+    public function update(Request $request ,$id){
+        $pengguna= Pengguna ::findOrFail($id);
         $pengguna->name = $request->name;
         $pengguna->role = $request->role;
         $pengguna->email = $request->email;
@@ -86,7 +86,7 @@ class PenggunaController extends Controller
         $pengguna->image = $request->image;
 
         try {
-            $pengguna->save();
+            $pengguna->save($request->all());
             return redirect(route('superadmin.pengguna.index')) ->with('pesan-berhasil','Data berhasil Diubah!');
         }
         catch(\Exception $e){
