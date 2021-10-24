@@ -65,7 +65,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{route('superadmin.pengguna.index')}}">Admin</a>
                     <a class="collapse-item" href="{{route('superadmin.suplier.index')}}">Suplier</a>
-                    <a class="collapse-item" href="cards.html">Barang Masuk</a>
+                    <a class="collapse-item" href="{{route('superadmin.barang_masuk.index')}}">Barang Masuk</a>
                     <a class="collapse-item" href="cards.html">Transaksi</a>
                 </div>
             </div>

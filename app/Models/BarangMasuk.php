@@ -2,14 +2,15 @@
 
 
 namespace App\Models;
+
+
 use Illuminate\Database\Eloquent\Model;
 
-class Pengguna extends Model
+class BarangMasuk extends Model
 {
-    protected $table = "admins";
+    protected $table = "barang_masuk";
     protected $primaryKey = "id";
     protected $fillable = [
-        'name', 'role', 'email', 'password','token', 'status',
-
-      ];
+        'name', 'stock', 'suplier_id', 'harga',
+    ];
 }

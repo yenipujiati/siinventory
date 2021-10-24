@@ -55,6 +55,17 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::post('/suplier/update/{id}', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'update'])->name('superadmin.suplier.update');
 
         Route::get('/suplier/delete/{id}', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'delete'])->name('superadmin.suplier.delete');
+
+        //RouteBarangMasuk
+        Route::get('/barang_masuk', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'index'])->name('superadmin.barang_masuk.index');
+        Route::get('/barang_masuk/add', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'add'])->name('superadmin.barang_masuk.add');
+        Route::post('/barang_masuk/store', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'store'])->name('superadmin.barang_masuk.store');
+
+        Route::get('/barang_masuk/edit/{id}', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'edit'])->name('superadmin.barang_masuk.edit');
+        Route::post('/barang_masuk/update/{id}', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'update'])->name('superadmin.barang_masuk.update');
+
+        Route::get('/barang_masuk/delete/{id}', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'delete'])->name('superadmin.barang_masuk.delete');
+
     });
 });
 
