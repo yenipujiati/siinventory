@@ -32,7 +32,10 @@
 
 
         @endforeach
+
+
+
            </tbody>
     </table>
-
+        {{$barang_masuk->links()}}
 @endsection

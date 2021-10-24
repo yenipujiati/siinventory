@@ -18,7 +18,7 @@ class BarangMasukController extends Controller
         $barang_masuk = BarangMasuk::select("barang_masuk.*",'supliers.name as penyuplai')
             -> join('supliers', 'supliers.id', '=', 'barang_masuk.suplier_id')
             ->orderBy('barang_masuk.id')
-            ->get();
+            ->paginate(1);
         return view('superadmin\content\barang_masuk\list', compact('barang_masuk'));
     }
 
