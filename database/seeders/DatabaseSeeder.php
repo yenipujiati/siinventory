@@ -18,37 +18,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('admins')->insert([
-            'name' => 'Yeni Pujiati',
+            'name' => 'Yen',
             'role' => 'superadmin',
-            'email' => 'yeni.p19@student.ukrimuniversity.ac.id',
+            'email' => 'yen@gmail.com',
             'password' => Hash::make('password'),
+            'image' => 'image.png',
         ]);
 
-        DB::table('admins')->insert([
-            'name' => 'Emmard Yedija',
-            'role' => 'superadmin',
-            'email' => 'emmard.y19@student.ukrimuniversity.ac.id',
-            'password' => Hash::make('password'),
-        ]);
-        DB::table('admins')->insert([
-            'name' => 'Udin',
-            'role' => 'admin',
-            'email' => 'Udin.k19@student.ukrimuniversity.ac.id',
-            'password' => Hash::make('password'),
-        ]);
-
-        DB::table('admins')->insert([
-            'name' => 'Berkati Telaumbanua',
-            'role' => 'superadmin',
-            'email' => 'berkati.t19@student.ukrimuniversity.ac.id',
-            'password' => Hash::make('password'),
-        ]);
-
-        DB::table('admins')->insert([
-            'name' => 'makmur',
-            'role' => 'superadmin',
-            'email' => 'makmur.m19@student.ukrimuniversity.ac.id',
-            'password' => Hash::make('password'),
+        DB::table('supliers')->insert([
+            'name' => 'Sal',
+            'email' => 'sal@gmail.com',
+            'phone_number' => '081321741255',
+            'address' => 'Jogja',
+            'industry' => 'PT. Saravana',
         ]);
     }
 }

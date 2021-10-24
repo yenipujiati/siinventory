@@ -10,7 +10,7 @@
 
         <div class="form-group">
             <label >Email</label>
-            <input type="email" name="email" value="{{$pengguna->name}}" class="form-control" placeholder="Email" required>
+            <input type="email" name="email" value="{{$pengguna->email}}" class="form-control" placeholder="Email" required>
         </div>
 
         <div class="form-group">
