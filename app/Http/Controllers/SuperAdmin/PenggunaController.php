@@ -4,8 +4,10 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 
+use App\Exports\DataPengguna;
 use App\Http\Controllers\Controller;
 use App\Models\Pengguna;
+use Maatwebsite\Excel\Facades\Excel;
 use Session;
 use Illuminate\Http\Request;
 
@@ -77,8 +79,9 @@ class PenggunaController extends Controller
         return view('superadmin/content/pengguna/edit', compact('pengguna'));
     }
 
-    public function update(Request $request ,$id){
-        $pengguna= Pengguna ::findOrFail($id);
+    public function update(Request $request ,$id)
+    {
+        $pengguna = Pengguna::findOrFail($id);
         $pengguna->name = $request->name;
         $pengguna->role = $request->role;
         $pengguna->email = $request->email;
@@ -87,12 +90,12 @@ class PenggunaController extends Controller
 
         try {
             $pengguna->save($request->all());
-            return redirect(route('superadmin.pengguna.index')) ->with('pesan-berhasil','Data berhasil Diubah!');
+            return redirect(route('superadmin.pengguna.index'))->with('pesan-berhasil', 'Data berhasil Diubah!');
+        } catch (\Exception $e) {
+            return redirect(route('superadmin.pengguna.index'))->with('pesan-gagal', 'Data tidak dapat Diubah!');
         }
-        catch(\Exception $e){
-            return redirect(route('superadmin.pengguna.index'))->with('pesan-gagal','Data tidak dapat Diubah!');
-        }
-
-
+    }
+    public function export(){
+        return Excel::download(new DataPengguna(),'pengguna.xlsx');
     }
 }

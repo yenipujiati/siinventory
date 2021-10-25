@@ -46,7 +46,9 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
 
         Route::get('/pengguna/delete/{id}', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'delete'])->name('superadmin.pengguna.delete');
 
-            //RouteSuplier
+        Route::get('/pengguna/export', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'export'])->name('superadmin.pengguna.export');
+
+        //RouteSuplier
         Route::get('/suplier', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'index'])->name('superadmin.suplier.index');
         Route::get('/suplier/add', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'add'])->name('superadmin.suplier.add');
         Route::post('/suplier/store', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'store'])->name('superadmin.suplier.store');
