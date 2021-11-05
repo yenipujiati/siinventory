@@ -96,7 +96,6 @@ class AuthController extends Controller
 
         $email = Helper::decrypt($emailHash);
         $pengguna = Pengguna::where('email', $email)->first();
-        dd($pengguna);
         
 
         if ($pengguna->token == $token){
