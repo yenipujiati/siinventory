@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login System</title>
+    <title>Atur Ulang Kata Sandi</title>
     <!-- CSS only -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -45,25 +45,26 @@
                                             <div class="text-center">
                                                 <h1 class="h4 text-gray-900 mb-10"><b>Selamat Datang di Sistem Inventory</b></h1>
                                             </div>
-            <form method="post" action="{{route('auth.verify')}}">
+            <form method="post" action="{{route('auth.renew')">
                 @csrf
+                
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <label for="exampleInputPassword1">Password Baru</label>
+                    <input type="password" name="password" required class="form-control" id="password" placeholder="Password">
                 </div>
+                
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="password" required class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <div class="form-group">
-                   <a href="{{route('auth.reset')}}">Lupa Password?</a>
+                    <label for="exampleInputPassword1">Konfirmasi Password Baru</label>
+                    <input type="password" name="new_password" required class="form-control" id="new_password" placeholder="Password">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <a href="{{route('auth.index')}}">Kembali Login</a>
+                </div>
+
+                <input type="hidden" name="token" value ="{{$emailHash}}">
+
+                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                 <p>&nbsp;</p>
                 <span>{{Helper::dateConverter(date('Y-m-d'))}}</span>
             </form>
