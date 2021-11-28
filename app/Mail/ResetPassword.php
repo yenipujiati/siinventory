@@ -20,7 +20,7 @@ class ResetPassword extends Mailable{
     public function build(){
         $data = array(
             'name' => $this->name,
-            'link' => $this->link,
+            'link' => $this->link
         );
 
         return $this->from('kuliahppl@gmail.com')->view('email/reset')->with(['data'=> $data]);

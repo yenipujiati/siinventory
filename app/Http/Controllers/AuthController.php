@@ -47,36 +47,37 @@ class AuthController extends Controller
         return redirect('login');
     }
 
-   public function reset(){
+    public function reset(){
         return view('reset');
 
-   }
+    }
 
-   public function forgot(Request $request){
+    public function forgot(Request $request){
         date_default_timezone_set('Asia/Jakarta');
         $this->validate($request, [
             'email' => 'required|email'
-
         ]);
 
         if(Pengguna::where('email', $request->email)->exists()){
             $pengguna = Pengguna::where('email', $request->email)->first();
             $token = $this->generateToken(24);
-            
+
             $date =  date_create(date('Y-m-d H:i:s'));
             date_add($date, date_interval_create_from_date_string('5 minutes'));
             $expired =date_format($date, 'Y-m-d H:i:s' );
-            
+
             $pengguna->token = $token;
             $pengguna->expired =$expired;
-    
+
             try{
-                $pengguna->save;
+                $pengguna->save();
+//                $pengguna->save;
+//                dd($token, $pengguna);
 
                 $email = Helper :: encrypt($request->email);
                 $reset_token = $pengguna->token;
-                $link = route('auth.password', [$email,$reset_token]);
-                
+                $link = route('auth.password',[$email,$reset_token]);
+
                 Mail :: to($request->email)->send(new ResetPassword($pengguna->name, $link));
 
                 return redirect(route('auth.reset'))->with('pesan','Silahkan cek email Anda. Token akan kadaluwarsa dalam waktu 5 menit');
@@ -88,26 +89,27 @@ class AuthController extends Controller
         }
         else{
 
-        }return redirect(route('auth.reset'))->with('pesan','Email belum Terdaftar');
+        }
+        return redirect(route('auth.reset'))->with('pesan','Email belum Terdaftar');
     }
 
     public function password($emailHash, $token){
         date_default_timezone_set('Asia/Jakarta');
 
         $email = Helper::decrypt($emailHash);
-        $pengguna = Pengguna::where('email', $email)->first();
-        
+        $pengguna = Pengguna::where('email',$email)->first();
 
-        if ($pengguna->token == $token){
+        if ($pengguna->token == $token) {
+
             $expired = $pengguna->expired;
             $now = date('Y-m-d H:i:s');
 
-            if (strtotime($expired) >= strtotime($now)){
-                //Bisa lanjut ubah password
-                return view('renew', compact('emailHash'));
+            if (strtotime($expired) > strtotime($now)) {
+                return  view('renew', compact('emailHash'));
             }else{
                 return redirect(route('auth.reset'))->with('pesan','Silahkan mengatur ulang, waktu anda habis');
             }
+
         }else{
             return redirect(route('auth.reset'))->with('pesan','Token tidak valid');
         }
@@ -115,24 +117,24 @@ class AuthController extends Controller
 
     public function renew(Request $request){
         date_default_timezone_set('Asia/Jakarta');
+
         $this->validate($request, [
             'password' => 'required',
-            'newpassword' => 'required | same:password',
+            'new_password' => 'required|same:password',
             'token' => 'required',
         ]);
 
-        $email = Halper :: decrypt ($request->token);
-        $pengguna = Pengguna ::where ('email', $email)->first();
+        $email = Helper::decrypt($request->token);
+        $pengguna = Pengguna ::where('email', $email)->first();
         $pengguna->password = bcrypt ( $request-> password);
 
         try{
-            $pengguna->save;
+            $pengguna->save();
             return redirect(route('auth.reset'))->with('pesan','Password Berhasil Diubah');
         }
         catch(\Exception $e){
             return redirect(route('auth.reset'))->with('pesan','Gagal mengatur ulang password.');
         }
-
     }
 
     private function generateToken($length = 10){

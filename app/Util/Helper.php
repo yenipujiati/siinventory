@@ -20,10 +20,12 @@ class Helper
     public static function uppercaseConverter($text) {
         return strtoupper($text);
     }
+
     public static function active($status){
         return($status== 1) ? "Aktif ": "Tidak Aktif";
 
     }
+
     public static function encrypt($string): string
     {
         $output = false;
