@@ -33,6 +33,16 @@ Route::group(['middleware' => 'auth:admin'], function (){
                 //RoutePengguna
         Route::get('/pengguna', [App\Http\Controllers\Admin\PenggunaController::class, 'index'])->name('admin.pengguna.index');
         Route::post('/pengguna/store', [App\Http\Controllers\Admin\PenggunaController::class, 'store'])->name('admin.pengguna.store');
+
+        //RouteSuplier
+        Route::get('/suplier', [App\Http\Controllers\admin\SuplierController::class, 'index'])->name('admin.suplier.index');
+        Route::get('/suplier/add', [App\Http\Controllers\admin\SuplierController::class, 'add'])->name('admin.suplier.add');
+        Route::post('/suplier/store', [App\Http\Controllers\admin\SuplierController::class, 'store'])->name('admin.suplier.store');
+
+        Route::get('/suplier/edit/{id}', [App\Http\Controllers\admin\SuplierController::class, 'edit'])->name('admin.suplier.edit');
+        Route::post('/suplier/update/{id}', [App\Http\Controllers\admin\SuplierController::class, 'update'])->name('admin.suplier.update');
+
+        Route::get('/suplier/delete/{id}', [App\Http\Controllers\admin\SuplierController::class, 'delete'])->name('admin.suplier.delete');
     });
 });
 

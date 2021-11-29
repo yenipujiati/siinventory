@@ -13,7 +13,7 @@
             <input type="email" name="email" value="{{$suplier->email}}" class="form-control" placeholder="Email" required>
         </div>
 
-        <<div class="form-group">
+        <div class="form-group">
             <label >Phone Number</label>
             <input type="text" name="phone_number" value="{{$suplier->phone_number}}" class="form-control" placeholder="Phone Number" required>
         </div>
