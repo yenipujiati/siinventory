@@ -28,8 +28,7 @@ Route::post('/renew', [App\Http\Controllers\AuthController::class, 'renew'])->na
 //Group untuk admin
 Route::group(['middleware' => 'auth:admin'], function (){
     Route::prefix('admin')->group(function (){
-        Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])
-            ->name('admin.dashboard.index');
+        Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard.index');
 
                 //RoutePengguna
         Route::get('/pengguna', [App\Http\Controllers\Admin\PenggunaController::class, 'index'])->name('admin.pengguna.index');
