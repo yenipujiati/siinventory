@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth:admin'], function (){
     Route::prefix('admin')->group(function (){
         Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard.index');
 
-                //RoutePengguna
+        //RoutePengguna
         Route::get('/pengguna', [App\Http\Controllers\Admin\PenggunaController::class, 'index'])->name('admin.pengguna.index');
         Route::post('/pengguna/store', [App\Http\Controllers\Admin\PenggunaController::class, 'store'])->name('admin.pengguna.store');
 
@@ -43,6 +43,17 @@ Route::group(['middleware' => 'auth:admin'], function (){
         Route::post('/suplier/update/{id}', [App\Http\Controllers\admin\SuplierController::class, 'update'])->name('admin.suplier.update');
 
         Route::get('/suplier/delete/{id}', [App\Http\Controllers\admin\SuplierController::class, 'delete'])->name('admin.suplier.delete');
+
+        //RouteBarangMasuk
+        Route::get('/barang_masuk', [App\Http\Controllers\Admin\BarangMasukController::class, 'index'])->name('admin.barang_masuk.index');
+        Route::get('/barang_masuk/add', [App\Http\Controllers\Admin\BarangMasukController::class, 'add'])->name('admin.barang_masuk.add');
+        Route::post('/barang_masuk/store', [App\Http\Controllers\Admin\BarangMasukController::class, 'store'])->name('admin.barang_masuk.store');
+
+        Route::get('/barang_masuk/edit/{id}', [App\Http\Controllers\Admin\BarangMasukController::class, 'edit'])->name('admin.barang_masuk.edit');
+        Route::post('/barang_masuk/update/{id}', [App\Http\Controllers\Admin\BarangMasukController::class, 'update'])->name('admin.barang_masuk.update');
+
+        Route::get('/barang_masuk/delete/{id}', [App\Http\Controllers\Admin\BarangMasukController::class, 'delete'])->name('admin.barang_masuk.delete');
+
     });
 });
 

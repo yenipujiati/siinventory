@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers\SuperAdmin;
+namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Controller;
@@ -19,7 +19,7 @@ class BarangMasukController extends Controller
             -> join('supliers', 'supliers.id', '=', 'barang_masuk.suplier_id')
             ->orderBy('barang_masuk.id')
             ->paginate(5);
-        return view('superadmin\content\barang_masuk\list', compact('barang_masuk'));
+        return view('admin\content\barang_masuk\list', compact('barang_masuk'));
     }
 
     public function add()
@@ -27,7 +27,7 @@ class BarangMasukController extends Controller
         //Menampilkan From tambah
         Session::put('title', 'Tambah Data Barang Masuk');
         $penyuplai = Suplier::all();
-        return view('superadmin/content/barang_masuk/add', compact('penyuplai'));
+        return view('admin/content/barang_masuk/add', compact('penyuplai'));
 
     }
 
@@ -40,10 +40,10 @@ class BarangMasukController extends Controller
         try {
             $barang_masuk->save();
             //pesan notifikasi sukses
-            return redirect(route('superadmin.barang_masuk.index')) ->with('pesan-berhasil','Data berhasil ditambahkan!');
+            return redirect(route('admin.barang_masuk.index')) ->with('pesan-berhasil','Data berhasil ditambahkan!');
         }catch(\Exception $e){
             //pesan notifikasi tidak sukses
-            return redirect(route('superadmin.barang_masuk.index'))->with('pesan-gagal','Data gagal ditambahkan!');
+            return redirect(route('admin.barang_masuk.index'))->with('pesan-gagal','Data gagal ditambahkan!');
         }
     }
 
@@ -53,10 +53,10 @@ class BarangMasukController extends Controller
         try {
             $barang_masuk->delete();
             //pesan notifikasi sukses
-            return redirect(route('superadmin.barang_masuk.index')) ->with('pesan-berhasil','Data berhasil Dihapus!');
+            return redirect(route('admin.barang_masuk.index')) ->with('pesan-berhasil','Data berhasil Dihapus!');
         }catch(\Exception $e){
             //pesan notifikasi tidak sukses
-            return redirect(route('superadmin.barang_masuk.index'))->with('pesan-gagal','Data tidak dapat Dihapus!');
+            return redirect(route('admin.barang_masuk.index'))->with('pesan-gagal','Data tidak dapat Dihapus!');
         }
     }
 
@@ -64,7 +64,7 @@ class BarangMasukController extends Controller
         Session::put('title', 'Edit Data Barang Masuk');
         $penyuplai = Suplier::all();
         $barang_masuk = BarangMasuk::FindOrFail($id);
-        return view('superadmin/content/barang_masuk/edit', compact('barang_masuk','penyuplai'));
+        return view('admin/content/barang_masuk/edit', compact('barang_masuk','penyuplai'));
     }
 
     public function update(Request $request ,$id){
@@ -77,10 +77,10 @@ class BarangMasukController extends Controller
 
         try {
             $barang_masuk->save($request->all());
-            return redirect(route('superadmin.barang_masuk.index')) ->with('pesan-berhasil','Data berhasil Diubah!');
+            return redirect(route('admin.barang_masuk.index')) ->with('pesan-berhasil','Data berhasil Diubah!');
         }
         catch(\Exception $e){
-            return redirect(route('superadmin.barang_masuk.index'))->with('pesan-gagal','Data gagal Diubah!');
+            return redirect(route('admin.barang_masuk.index'))->with('pesan-gagal','Data gagal Diubah!');
         }
 
 

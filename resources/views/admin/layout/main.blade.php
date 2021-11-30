@@ -59,7 +59,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{route('admin.pengguna.index')}}">Admin</a>
                     <a class="collapse-item" href="{{route('admin.suplier.index')}}">Suplier</a>
-                    <a class="collapse-item" href="cards.html">Jenis Produk</a>
+                    <a class="collapse-item" href="{{route('admin.barang_masuk.index')}}">Produk</a>
                     <a class="collapse-item" href="cards.html">Transaksi</a>
                 </div>
             </div>
@@ -73,9 +73,7 @@
             </a>
             <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="buttons.html">Admin</a>
-                    <a class="collapse-item" href="cards.html">Produk</a>
-                    <a class="collapse-item" href="cards.html">Transaksi Pembelian</a>
+                    <a class="collapse-item" href="buttons.html">Laporan</a>
                 </div>
             </div>
         </li>
