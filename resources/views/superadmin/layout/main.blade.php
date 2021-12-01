@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB SuperAdmin 2 - Blank</title>
+    <title>SI INVENTORY</title>
+    <link rel="shortcut icon" href="/Logo.png" type="image/png">
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">

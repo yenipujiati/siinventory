@@ -1,8 +1,8 @@
-@extends('superadmin/layout/main')
+@extends('admin/layout/main')
 @section('content')
 
 
-    <a href="{{route('superadmin.costomer.add')}}"class ="btn btn-sm btn-primary">Tambah Costomer</a>
+    <a href="{{route('admin.costomer.add')}}"class ="btn btn-sm btn-primary">Tambah Costomer</a>
     <table class="table table-striped table-hover">
 
         @csrf
@@ -26,8 +26,8 @@
                 <td>{{$row->nomber}}</td>
                 <td>{{$row->email}}</td>
                 <td>
-                    <a href= "{{route('superadmin.costomer.edit',$row->id)}}" data-toogle="tooltip" data-placement="top" title="Edit" class ="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                    <a onclick = "return confirm ('Hapus Data?')" href="{{route('superadmin.costomer.delete',$row->id)}}" data-toogle="tooltip" data-placement="top" title="Hapus" class ="btn btn-sm btn-warning"><i class="fa fa-trash"></i></a>
+                    <a href= "{{route('admin.costomer.edit',$row->id)}}" data-toogle="tooltip" data-placement="top" title="Edit" class ="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                    <a onclick = "return confirm ('Hapus Data?')" href="{{route('admin.costomer.delete',$row->id)}}" data-toogle="tooltip" data-placement="top" title="Hapus" class ="btn btn-sm btn-warning"><i class="fa fa-trash"></i></a>
                 </td>
 
             </tr>

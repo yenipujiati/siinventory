@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers\SuperAdmin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Costomer;
@@ -16,7 +16,7 @@ class CostomerController extends Controller
     {
         Session::put('title', 'Data Costomer');
         $costomer = Costomer::all();
-        return view('superadmin\content\costomer\list', compact('costomer'));
+        return view('admin\content\costomer\list', compact('costomer'));
     }
 
     public function add()
@@ -24,7 +24,7 @@ class CostomerController extends Controller
         //Menampilkan From tambah
         Session::put('title', 'Tambah Data Customer');
 
-        return view('superadmin/content/costomer/add');
+        return view('admin/content/costomer/add');
     }
 
     public function store(Request $request)
@@ -43,10 +43,10 @@ class CostomerController extends Controller
         try {
             $costomer->save();
             //pesan notifikasi sukses
-            return redirect(route('superadmin.costomer.index')) ->with('pesan-berhasil','Data berhasil ditambahkan!');
+            return redirect(route('admin.costomer.index')) ->with('pesan-berhasil','Data berhasil ditambahkan!');
         }catch(\Exception $e){
             //pesan notifikasi tidak sukses
-            return redirect(route('superadmin.costomer.index'))->with('pesan-gagal','Email yang Anda gunakan sudah terdaftar. Silahkan menggunakan email yang Baru!');
+            return redirect(route('admin.costomer.index'))->with('pesan-gagal','Email yang Anda gunakan sudah terdaftar. Silahkan menggunakan email yang Baru!');
         }
     }
 
@@ -56,17 +56,17 @@ class CostomerController extends Controller
             try {
                 $costomer->delete();
                 //pesan notifikasi sukses
-                return redirect(route('superadmin.costomer.index')) ->with('pesan-berhasil','Data berhasil Dihapus!');
+                return redirect(route('admin.costomer.index')) ->with('pesan-berhasil','Data berhasil Dihapus!');
             }catch(\Exception $e){
                 //pesan notifikasi tidak sukses
-                return redirect(route('superadmin.costomer.index'))->with('pesan-gagal','Data tidak dapat Dihapus!');
+                return redirect(route('admin.costomer.index'))->with('pesan-gagal','Data tidak dapat Dihapus!');
             }
         }
     
         public function edit($id){
             Session::put('title', 'Edit Data Costumer');
             $costomer = Costomer::FindOrFail($id);
-            return view('superadmin/content/costomer/edit', compact('costomer'));
+            return view('admin/content/costomer/edit', compact('costomer'));
         }
     
         public function update(Request $request ,$id){
@@ -78,10 +78,10 @@ class CostomerController extends Controller
     
             try {
                 $costomer->save($request->all());
-                return redirect(route('superadmin.costomer.index')) ->with('pesan-berhasil','Data berhasil Diubah!');
+                return redirect(route('admin.costomer.index')) ->with('pesan-berhasil','Data berhasil Diubah!');
             }
             catch(\Exception $e){
-                return redirect(route('superadmin.costomer.index'))->with('pesan-gagal','Data tidak dapat Diubah!');
+                return redirect(route('admin.costomer.index'))->with('pesan-gagal','Data tidak dapat Diubah!');
             }
         }
 

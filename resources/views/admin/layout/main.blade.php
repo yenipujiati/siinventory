@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>SI INVENTORY</title>
+    <link rel="shortcut icon" href="/Logo.png" type="image/png">
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -59,7 +60,8 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{route('admin.pengguna.index')}}">Admin</a>
                     <a class="collapse-item" href="{{route('admin.suplier.index')}}">Suplier</a>
-                    <a class="collapse-item" href="{{route('admin.barang_masuk.index')}}">Produk</a>
+                    <a class="collapse-item" href="{{route('admin.barang_masuk.index')}}">Barang Masuk</a>
+                    <a class="collapse-item" href="{{route('admin.costomer.index')}}">Costumer</a>
                     <a class="collapse-item" href="cards.html">Transaksi</a>
                 </div>
             </div>

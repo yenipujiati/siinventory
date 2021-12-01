@@ -54,6 +54,16 @@ Route::group(['middleware' => 'auth:admin'], function (){
 
         Route::get('/barang_masuk/delete/{id}', [App\Http\Controllers\Admin\BarangMasukController::class, 'delete'])->name('admin.barang_masuk.delete');
 
+        //Costomer
+        Route::get('/costomer', [App\Http\Controllers\Admin\CostomerController::class, 'index'])->name('admin.costomer.index');
+        Route::get('/costomer/add', [App\Http\Controllers\Admin\CostomerController::class, 'add'])->name('admin.costomer.add');
+        Route::post('/costomer/store', [App\Http\Controllers\Admin\CostomerController::class, 'store'])->name('admin.costomer.store');
+
+        Route::get('/barang_masuk/edit/{id}', [App\Http\Controllers\Admin\CostomerController::class, 'edit'])->name('admin.costomer.edit');
+        Route::post('/barang_masuk/update/{id}', [App\Http\Controllers\Admin\CostomerController::class, 'update'])->name('admin.costomer.update');
+
+        Route::get('/barang_masuk/delete/{id}', [App\Http\Controllers\Admin\CostomerController::class, 'delete'])->name('admin.costomer.delete');
+
     });
 });
 
@@ -99,6 +109,10 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::get('/costomer/add', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'add'])->name('superadmin.costomer.add');
         Route::post('/costomer/store', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'store'])->name('superadmin.costomer.store');
 
+        Route::get('/barang_masuk/edit/{id}', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'edit'])->name('superadmin.costomer.edit');
+        Route::post('/barang_masuk/update/{id}', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'update'])->name('superadmin.costomer.update');
+
+        Route::get('/barang_masuk/delete/{id}', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'delete'])->name('superadmin.costomer.delete');
 
     });
 });
