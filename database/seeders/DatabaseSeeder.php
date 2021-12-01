@@ -34,6 +34,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('admins')->insert([
+            'name' => 'Udin',
+            'role' => 'admin',
+            'email' => 'udin@gmail.com',
+            'password' => Hash::make('password'),
+            'image' => 'image.png',
+        ]);
+
+        DB::table('admins')->insert([
             'name' => 'Emard',
             'role' => 'superadmin',
             'email' => 'emard@gmail.com',
@@ -62,6 +70,14 @@ class DatabaseSeeder extends Seeder
             'stock' => 100,
             'suplier_id' => 1,
             'Harga' => 3000000,
+        ]);
+
+        DB::table('costomer')->insert([
+            'name' => 'sayang',
+            'alamat' => 'Jl.jadi sayang',
+
+            'email' => 'sayang@gmail.com',
+            'nomber' => '082322889911',
         ]);
     }
 }

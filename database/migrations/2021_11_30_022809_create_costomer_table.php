@@ -19,6 +19,7 @@ class CreateCostomerTable extends Migration
             $table->string('alamat');
             $table->string('email');
             $table->string('nomber');
+
         });
     }
 

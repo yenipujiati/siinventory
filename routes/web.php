@@ -94,6 +94,12 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
 
         Route::get('/barang_masuk/delete/{id}', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'delete'])->name('superadmin.barang_masuk.delete');
 
+        //Costomer
+        Route::get('/costomer', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'index'])->name('superadmin.costomer.index');
+        Route::get('/costomer/add', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'add'])->name('superadmin.costomer.add');
+        Route::post('/costomer/store', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'store'])->name('superadmin.costomer.store');
+
+
     });
 });
 

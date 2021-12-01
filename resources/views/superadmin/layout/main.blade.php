@@ -66,6 +66,7 @@
                     <a class="collapse-item" href="{{route('superadmin.pengguna.index')}}">Admin</a>
                     <a class="collapse-item" href="{{route('superadmin.suplier.index')}}">Suplier</a>
                     <a class="collapse-item" href="{{route('superadmin.barang_masuk.index')}}">Barang Masuk</a>
+                    <a class="collapse-item" href="{{route('superadmin.costomer.index')}}">Costomer</a>
                     <a class="collapse-item" href="cards.html">Transaksi</a>
                 </div>
             </div>
