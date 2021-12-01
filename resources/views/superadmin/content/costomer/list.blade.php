@@ -1,10 +1,15 @@
 @extends('superadmin/layout/main')
 @section('content')
 
-
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
     <a href="{{route('superadmin.costomer.add')}}"class ="btn btn-sm btn-primary">Tambah Costomer</a>
-    <table class="table table-striped table-hover">
+    <a href="{{route('superadmin.costomer.cetak')}}" target="blank" class ="btn btn-sm btn-danger"><i class="fa fa-print"></i> Cetak PDF </a>
 
+</div>
+    
+
+    <table class="table table-striped table-hover">
         @csrf
         <thead style="background: #2d2e33">
         <tr>

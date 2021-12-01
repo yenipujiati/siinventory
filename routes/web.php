@@ -34,15 +34,19 @@ Route::group(['middleware' => 'auth:admin'], function (){
         Route::get('/pengguna', [App\Http\Controllers\Admin\PenggunaController::class, 'index'])->name('admin.pengguna.index');
         Route::post('/pengguna/store', [App\Http\Controllers\Admin\PenggunaController::class, 'store'])->name('admin.pengguna.store');
 
+        Route::get('/pengguna/cetak', [App\Http\Controllers\Admin\PenggunaController::class, 'cetak'])->name('admin.pengguna.cetak');
+
         //RouteSuplier
         Route::get('/suplier', [App\Http\Controllers\admin\SuplierController::class, 'index'])->name('admin.suplier.index');
         Route::get('/suplier/add', [App\Http\Controllers\admin\SuplierController::class, 'add'])->name('admin.suplier.add');
         Route::post('/suplier/store', [App\Http\Controllers\admin\SuplierController::class, 'store'])->name('admin.suplier.store');
 
-        Route::get('/suplier/edit/{id}', [App\Http\Controllers\admin\SuplierController::class, 'edit'])->name('admin.suplier.edit');
-        Route::post('/suplier/update/{id}', [App\Http\Controllers\admin\SuplierController::class, 'update'])->name('admin.suplier.update');
+        Route::get('/suplier/edit/{id}', [App\Http\Controllers\Admin\SuplierController::class, 'edit'])->name('admin.suplier.edit');
+        Route::post('/suplier/update/{id}', [App\Http\Controllers\Admin\SuplierController::class, 'update'])->name('admin.suplier.update');
 
-        Route::get('/suplier/delete/{id}', [App\Http\Controllers\admin\SuplierController::class, 'delete'])->name('admin.suplier.delete');
+        Route::get('/suplier/delete/{id}', [App\Http\Controllers\Admin\SuplierController::class, 'delete'])->name('admin.suplier.delete');
+
+        Route::get('/suplier/cetak', [App\Http\Controllers\Admin\SuplierController::class, 'cetak'])->name('admin.suplier.cetak');
 
         //RouteBarangMasuk
         Route::get('/barang_masuk', [App\Http\Controllers\Admin\BarangMasukController::class, 'index'])->name('admin.barang_masuk.index');
@@ -59,11 +63,12 @@ Route::group(['middleware' => 'auth:admin'], function (){
         Route::get('/costomer/add', [App\Http\Controllers\Admin\CostomerController::class, 'add'])->name('admin.costomer.add');
         Route::post('/costomer/store', [App\Http\Controllers\Admin\CostomerController::class, 'store'])->name('admin.costomer.store');
 
-        Route::get('/barang_masuk/edit/{id}', [App\Http\Controllers\Admin\CostomerController::class, 'edit'])->name('admin.costomer.edit');
-        Route::post('/barang_masuk/update/{id}', [App\Http\Controllers\Admin\CostomerController::class, 'update'])->name('admin.costomer.update');
+        Route::get('/costomer/edit/{id}', [App\Http\Controllers\Admin\CostomerController::class, 'edit'])->name('admin.costomer.edit');
+        Route::post('/costomer/update/{id}', [App\Http\Controllers\Admin\CostomerController::class, 'update'])->name('admin.costomer.update');
 
-        Route::get('/barang_masuk/delete/{id}', [App\Http\Controllers\Admin\CostomerController::class, 'delete'])->name('admin.costomer.delete');
+        Route::get('/costomer/delete/{id}', [App\Http\Controllers\Admin\CostomerController::class, 'delete'])->name('admin.costomer.delete');
 
+        Route::get('/costomer/cetak', [App\Http\Controllers\Admin\CostomerController::class, 'cetak'])->name('admin.costomer.cetak');
     });
 });
 
@@ -84,6 +89,8 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
 
         Route::get('/pengguna/export', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'export'])->name('superadmin.pengguna.export');
 
+        Route::get('/pengguna/cetak', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'cetak'])->name('superadmin.pengguna.cetak');
+      
         //RouteSuplier
         Route::get('/suplier', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'index'])->name('superadmin.suplier.index');
         Route::get('/suplier/add', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'add'])->name('superadmin.suplier.add');
@@ -94,6 +101,8 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
 
         Route::get('/suplier/delete/{id}', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'delete'])->name('superadmin.suplier.delete');
 
+        Route::get('/suplier/cetak', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'cetak'])->name('superadmin.suplier.cetak');
+   
         //RouteBarangMasuk
         Route::get('/barang_masuk', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'index'])->name('superadmin.barang_masuk.index');
         Route::get('/barang_masuk/add', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'add'])->name('superadmin.barang_masuk.add');
@@ -109,11 +118,12 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::get('/costomer/add', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'add'])->name('superadmin.costomer.add');
         Route::post('/costomer/store', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'store'])->name('superadmin.costomer.store');
 
-        Route::get('/barang_masuk/edit/{id}', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'edit'])->name('superadmin.costomer.edit');
-        Route::post('/barang_masuk/update/{id}', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'update'])->name('superadmin.costomer.update');
+        Route::get('/costomer/edit/{id}', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'edit'])->name('superadmin.costomer.edit');
+        Route::post('/costomer/update/{id}', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'update'])->name('superadmin.costomer.update');
 
-        Route::get('/barang_masuk/delete/{id}', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'delete'])->name('superadmin.costomer.delete');
+        Route::get('/costomer/delete/{id}', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'delete'])->name('superadmin.costomer.delete');
 
+        Route::get('/costomer/cetak', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'cetak'])->name('superadmin.costomer.cetak');
     });
 });
 

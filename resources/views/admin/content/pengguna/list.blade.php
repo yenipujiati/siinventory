@@ -1,7 +1,10 @@
 @extends('admin/layout/main')
 @section('content')
 
-
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <a href="{{route('admin.pengguna.cetak')}}" target="blank" class ="btn btn-sm btn-danger"><i class="fa fa-print"></i> Cetak PDF </a>
+</div>
    
     <table class="table table-striped table-hover">
 

@@ -26,5 +26,12 @@ class PenggunaController extends Controller
 //        return view('admin/content/pengguna/list');
     }
 
+    public function cetak()
+    {
+        Session::put('title', 'Data Pengguna');
+        $pengguna = Pengguna::get();
+        return view('admin\content\pengguna\cetak', compact('pengguna'));
+    }
+
     
 }

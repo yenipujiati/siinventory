@@ -84,6 +84,12 @@ class CostomerController extends Controller
                 return redirect(route('admin.costomer.index'))->with('pesan-gagal','Data tidak dapat Diubah!');
             }
         }
+        public function cetak()
+    {
+        Session::put('title', 'Data Costomer');
+        $costomer = Costomer::get();
+        return view('admin\content\costomer\cetak', compact('costomer'));
+    }
 
 
 }

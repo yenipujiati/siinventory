@@ -85,5 +85,12 @@ class CostomerController extends Controller
             }
         }
 
+        public function cetak()
+    {
+        Session::put('title', 'Data Costmer');
+        $costomer = Costomer::get();
+        return view('superadmin\content\costomer\cetak', compact('costomer'));
+    }
+
 
 }

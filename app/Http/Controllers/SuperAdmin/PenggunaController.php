@@ -98,4 +98,10 @@ class PenggunaController extends Controller
     public function export(){
         return Excel::download(new DataPengguna(),'pengguna.xlsx');
     }
+    public function cetak()
+    {
+        Session::put('title', 'Data Pengguna');
+        $pengguna = Pengguna::get();
+        return view('superadmin\content\pengguna\cetak', compact('pengguna'));
+    }
 }

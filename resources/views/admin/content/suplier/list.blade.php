@@ -1,7 +1,11 @@
 @extends('admin/layout/main')
 @section('content')
 
-
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <a href="{{route('admin.suplier.add')}}"class ="btn btn-sm btn-primary">Tambah Suplier</a>
+    <a href="{{route('admin.suplier.cetak')}}" target="blank" class ="btn btn-sm btn-danger"><i class="fa fa-print"></i> Cetak PDF </a>
+</div>
     <table class="table table-striped table-hover">
 
         @csrf
@@ -13,6 +17,7 @@
                 <th scope="col">Phone Number</th>
                 <th scope="col">Address</th>
                 <th scope="col">Industry</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
 
@@ -25,6 +30,10 @@
                 <td>{{$row->phone_number}}</td>
                 <td>{{$row->address}}</td>
                 <td>{{$row->industry}}</td>
+                <td>
+            <a href= "{{route('admin.suplier.edit',$row->id)}}" data-toogle="tooltip" data-placement="top" title="Edit" class ="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+            <a onclick = "return confirm ('Hapus Data?')" href="{{route('admin.suplier.delete',$row->id)}}" data-toogle="tooltip" data-placement="top" title="Hapus" class ="btn btn-sm btn-warning"><i class="fa fa-trash"></i></a>
+        </td>
             </tr>
 
 

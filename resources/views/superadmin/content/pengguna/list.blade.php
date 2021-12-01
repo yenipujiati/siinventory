@@ -1,9 +1,13 @@
 @extends('superadmin/layout/main')
 @section('content')
 
-
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
     <a href="{{route('superadmin.pengguna.add')}}"class ="btn btn-sm btn-primary">Tambah Data </a>
     <a href="{{route('superadmin.pengguna.export')}}"class ="btn btn-sm btn-success"><i class="fa fa-file-excel"></i> Download Excel </a>
+    <a href="{{route('superadmin.pengguna.cetak')}}" target="blank" class ="btn btn-sm btn-danger"><i class="fa fa-print"></i> Cetak PDF </a>
+</div>
+    
 
     <table class="table table-striped table-hover">
 

@@ -84,7 +84,12 @@ class SuplierController extends Controller
         catch(\Exception $e){
             return redirect(route('superadmin.suplier.index'))->with('pesan-gagal','Data tidak dapat Diubah!');
         }
+    }
 
-
+    public function cetak()
+    {
+        Session::put('title', 'Data Suplier');
+        $suplier = Suplier::get();
+        return view('superadmin\content\suplier\cetak', compact('suplier'));
     }
 }

@@ -1,8 +1,12 @@
 @extends('superadmin/layout/main')
 @section('content')
 
+ <!-- Page Heading -->
+ <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <a href="{{route('superadmin.suplier.add')}}"class ="btn btn-sm btn-primary">Tambah Suplier</a>
+    <a href="{{route('superadmin.suplier.cetak')}}" target="blank" class ="btn btn-sm btn-danger"><i class="fa fa-print"></i> Cetak PDF </a>
+</div>   
 
-    <a href="{{route('superadmin.suplier.add')}}"class ="btn btn-sm btn-primary">Tambah Data</a>
     <table class="table table-striped table-hover">
 
         @csrf
