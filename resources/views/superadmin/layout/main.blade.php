@@ -54,24 +54,36 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
-
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1"
+               aria-expanded="true" aria-controls="collapse1">
+                <i class="fas fa-fw fa-boxes"></i>
                 <span>Data</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{route('superadmin.pengguna.index')}}">Admin</a>
                     <a class="collapse-item" href="{{route('superadmin.suplier.index')}}">Suplier</a>
-                    <a class="collapse-item" href="{{route('superadmin.barang_masuk.index')}}">Barang Masuk</a>
                     <a class="collapse-item" href="{{route('superadmin.costomer.index')}}">Costumer</a>
-                    <a class="collapse-item" href="cards.html">Transaksi</a>
                 </div>
             </div>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
+               aria-expanded="true" aria-controls="collapse2">
+                <i class="fas fa-fw fa-handshake"></i>
+                <span>Transaksi</span>
+            </a>
+            <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{route('superadmin.barang_masuk.index')}}">Barang Masuk</a>
+                    <a class="collapse-item" href="cards.html">Barang Keluar</a>
+                </div>
+            </div>
+        </li>
+
 
 
         <li class="nav-item">

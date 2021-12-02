@@ -51,27 +51,48 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1"
+               aria-expanded="true" aria-controls="collapse1">
+                <i class="fas fa-fw fa-boxes"></i>
                 <span>Data</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{route('admin.pengguna.index')}}">Admin</a>
                     <a class="collapse-item" href="{{route('admin.suplier.index')}}">Suplier</a>
-                    <a class="collapse-item" href="{{route('admin.barang_masuk.index')}}">Barang Masuk</a>
                     <a class="collapse-item" href="{{route('admin.costomer.index')}}">Costumer</a>
-                    <a class="collapse-item" href="cards.html">Transaksi</a>
                 </div>
             </div>
         </li>
 
         <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
+               aria-expanded="true" aria-controls="collapse2">
+                <i class="fas fa-fw fa-handshake"></i>
+                <span>Transaksi</span>
+            </a>
+            <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{route('admin.barang_masuk.index')}}">Barang Masuk</a>
+                    <a class="collapse-item" href="cards.html">Barang Keluar</a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
                aria-expanded="true" aria-controls="collapse3">
-                <i class="fas fa-fw fa-cog"></i>
+                <i class="fas fa-fw fa-file"></i>
                 <span>Laporan</span>
+            </a>
+            <div id="collapse3" class="collapse" aria-labelledby="heading3 " data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="buttons.html">Laporan</a>
+                </div>
+            </div>
+        </li>
+    </ul>
             </a>
             <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">

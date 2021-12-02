@@ -15,7 +15,14 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->integer('qty');
+            $table->unsignedSmallInteger('tranctions_id');
+            $table->unsignedSmallInteger('');
+
             $table->timestamps();
+            $table->foreign('tranctions_id')->references('id')->on('tranctions_id');
+            $table->foreign('costomer_id')->references('id')->on('tranctions_id');
+
         });
     }
 
