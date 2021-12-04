@@ -43,12 +43,11 @@
                                     <div class="col-lg-12">
                                         <div class="p-5">
                                             <div class="text-center">
-                                                <h1 class="h4 text-gray-900 mb-10"><b>Selamat Datang di Sistem Inventory</b></h1>
+                                                <h1 class="h4 text-gray-900 mb-10"><b>Reset Password</b></h1>
                                             </div>
             <form method="post" action="{{route('auth.forgot')}}">
                 @csrf
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
                     <input type="email" name="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
                
@@ -58,8 +57,6 @@
                 
 
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <p>&nbsp;</p>
-                <span>{{Helper::dateConverter(date('Y-m-d'))}}</span>
             </form>
              </div>
                </div>

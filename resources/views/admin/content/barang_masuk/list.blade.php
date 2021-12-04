@@ -1,8 +1,11 @@
 @extends('admin/layout/main')
 @section('content')
 
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <a href="{{route('admin.barang_masuk.add')}}"class ="btn btn-sm btn-primary" ><i class="fas fa-plus-square"></i> Add</a>
+    <a href="{{route('admin.barang_masuk.cetak')}}" d target="blank" class ="btn btn-sm btn-danger"><i class="fa fa-print"></i>Cetak PDF</a>
+</div>
 
-    <a href="{{route('admin.barang_masuk.add')}}"class ="btn btn-sm btn-primary">Tambah Data Barang Masuk</a>
     <table class="table table-striped table-hover">
 
         @csrf

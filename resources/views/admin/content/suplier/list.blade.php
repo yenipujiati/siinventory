@@ -1,11 +1,11 @@
 @extends('admin/layout/main')
 @section('content')
 
-<!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <a href="{{route('admin.suplier.add')}}"class ="btn btn-sm btn-primary">Tambah Suplier</a>
-    <a href="{{route('admin.suplier.cetak')}}" target="blank" class ="btn btn-sm btn-danger"><i class="fa fa-print"></i> Cetak PDF </a>
+    <a href="{{route('admin.suplier.add')}}"class ="btn btn-sm btn-primary" ><i class="fas fa-plus-square"></i> Add</a>
+    <a href="{{route('admin.suplier.cetak')}}" d target="blank" class ="btn btn-sm btn-danger"><i class="fa fa-print"></i>Cetak PDF</a>
 </div>
+
     <table class="table table-striped table-hover">
 
         @csrf

@@ -41,35 +41,38 @@
 
                                         <div class="bg-gradient-danger shadow-primary py-3 pe-1" style="border: red; border-radius: 15px">
                                             <h2 class="text-white font-weight-bolder text-center mt-2 mb-0">SELAMAT DATANG DI SISTEM INVENTORY</h2>
-                                    </div>
+                                        </div>
+
                                         </div>
                                         <form method="post" action="{{route('auth.verify')}}">
                                             @csrf
                                             <div class="p-2">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" name="email" required class="form-control"
-                                                       id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                       placeholder="Enter email">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email address</label>
+                                                    <input type="email" name="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                </div>
                                             </div>
+
+                                            <div class="p-2">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Password</label>
+                                                    <input type="password" name="password" required class="form-control" id="exampleInputPassword1">
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" name="password" required class="form-control"
-                                                       id="exampleInputPassword1" placeholder="Password">
-                                            </div>
+
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1">Check me
-                                                    out</label>
+                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
                                             </div>
+                                            
                                             <div class="form-group">
                                                 <a href="{{route('auth.reset')}}">Lupa Password?</a>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                            <p>&nbsp;</p>
-                                            <span>{{Helper::dateConverter(date('Y-m-d'))}}</span>
+                                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                            <button type="submit" class="btn btn-primary">Login</button>
+                                            <span>Tanggal: {{Helper::dateConverter(date('Y-m-d'))}}</span>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

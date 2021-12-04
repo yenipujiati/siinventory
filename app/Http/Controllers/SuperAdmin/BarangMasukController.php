@@ -82,7 +82,12 @@ class BarangMasukController extends Controller
         catch(\Exception $e){
             return redirect(route('superadmin.barang_masuk.index'))->with('pesan-gagal','Data gagal Diubah!');
         }
+    }
 
-
+    public function cetak()
+    {
+        Session::put('title', 'Data barang Masuk');
+        $barang_masuk = BarangMasuk::get();
+        return view('superadmin\content\barang_masuk\cetak', compact('barang_masuk'));
     }
 }

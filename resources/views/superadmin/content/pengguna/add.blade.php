@@ -29,7 +29,7 @@
 
 
       <input type="submit" value="Simpan" class="btn-sm btn-primary">
-
+      <a href="{{route('superadmin.pengguna.index')}}"class ="btn btn-sm btn-danger" ><i class="fas fa-back"></i>Batal</a>
         </div>
 
     </form>

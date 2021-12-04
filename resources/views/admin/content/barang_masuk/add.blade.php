@@ -32,8 +32,6 @@
         </div>
 
       <input type="submit" value="Simpan" class="btn-sm btn-primary">
-
-        </div>
-
+      <a href="{{route('admin.barang_masuk.index')}}"class ="btn btn-sm btn-danger" ><i class="fas fa-back"></i>Batal</a>
     </form>
 @endsection

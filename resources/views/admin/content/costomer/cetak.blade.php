@@ -10,8 +10,7 @@
 </head>
 <body>  
     <h3 align="center"><b> List Data Costumer</b></h3>
-    <table border="1" width="100%" style="text-align:center;">
- 
+    <table style="margin-left:auto;margin-right:auto" border="1"> 
 @csrf
     <thead style="background: #2d2e33">
         <tr>

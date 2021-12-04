@@ -58,6 +58,8 @@ Route::group(['middleware' => 'auth:admin'], function (){
 
         Route::get('/barang_masuk/delete/{id}', [App\Http\Controllers\Admin\BarangMasukController::class, 'delete'])->name('admin.barang_masuk.delete');
 
+        route::get('/barang_masuk/cetak', [App\Http\Controllers\Admin\BarangMasukController::class, 'cetak'])->name('admin.barang_masuk.cetak');
+
         //Costomer
         Route::get('/costomer', [App\Http\Controllers\Admin\CostomerController::class, 'index'])->name('admin.costomer.index');
         Route::get('/costomer/add', [App\Http\Controllers\Admin\CostomerController::class, 'add'])->name('admin.costomer.add');
@@ -114,6 +116,7 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
 
         Route::get('/barang_masuk/delete/{id}', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'delete'])->name('superadmin.barang_masuk.delete');
 
+        route::get('/barang_masuk/cetak', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'cetak'])->name('superadmin.barang_masuk.cetak');
         //Costomer
         Route::get('/costomer', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'index'])->name('superadmin.costomer.index');
         Route::get('/costomer/add', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'add'])->name('superadmin.costomer.add');
