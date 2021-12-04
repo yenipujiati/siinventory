@@ -69,6 +69,7 @@ Route::group(['middleware' => 'auth:admin'], function (){
         Route::get('/costomer/delete/{id}', [App\Http\Controllers\Admin\CostomerController::class, 'delete'])->name('admin.costomer.delete');
 
         Route::get('/costomer/cetak', [App\Http\Controllers\Admin\CostomerController::class, 'cetak'])->name('admin.costomer.cetak');
+
     });
 });
 
@@ -90,7 +91,7 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::get('/pengguna/export', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'export'])->name('superadmin.pengguna.export');
 
         Route::get('/pengguna/cetak', [App\Http\Controllers\SuperAdmin\PenggunaController::class, 'cetak'])->name('superadmin.pengguna.cetak');
-      
+
         //RouteSuplier
         Route::get('/suplier', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'index'])->name('superadmin.suplier.index');
         Route::get('/suplier/add', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'add'])->name('superadmin.suplier.add');
@@ -102,7 +103,7 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::get('/suplier/delete/{id}', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'delete'])->name('superadmin.suplier.delete');
 
         Route::get('/suplier/cetak', [App\Http\Controllers\SuperAdmin\SuplierController::class, 'cetak'])->name('superadmin.suplier.cetak');
-   
+
         //RouteBarangMasuk
         Route::get('/barang_masuk', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'index'])->name('superadmin.barang_masuk.index');
         Route::get('/barang_masuk/add', [App\Http\Controllers\SuperAdmin\BarangMasukController::class, 'add'])->name('superadmin.barang_masuk.add');
@@ -124,6 +125,13 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::get('/costomer/delete/{id}', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'delete'])->name('superadmin.costomer.delete');
 
         Route::get('/costomer/cetak', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'cetak'])->name('superadmin.costomer.cetak');
+
+        //Transaksi
+        Route::get('/transaction', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'index'])->name('admin.transaksi.index');
+        Route::get('/transaction/add', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'add'])->name('superadmin.transaksi.add');
+        Route::post('/transaction/store', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'store'])->name('superadmin.transaksi.store');
+
+        Route::get('/transaction/detail/{id}', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'detail'])->name('superadmin.transaksi.detail');
     });
 });
 

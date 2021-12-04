@@ -46,7 +46,7 @@ class SuplierController extends Controller
             return redirect(route('superadmin.suplier.index')) ->with('pesan-berhasil','Data berhasil ditambahkan!');
         }catch(\Exception $e){
             //pesan notifikasi tidak sukses
-            return redirect(route('superadmin.suplier.index'))->with('pesan-gagal','Email yang Anda gunakan sudah terdaftar. Silahkan menggunakan email yang Baru!');
+            return redirect(route('superadmin.suplier.index'))->with('pesan-gagal','Data Gagal Ditambahkan');
         }
     }
 

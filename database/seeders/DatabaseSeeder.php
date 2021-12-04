@@ -79,5 +79,28 @@ class DatabaseSeeder extends Seeder
             'email' => 'sayang@gmail.com',
             'nomber' => '082322889911',
         ]);
+
+        DB::table('transactions')->insert([
+            'id' => 1,
+            'date' => '2021-12-16 21:35:21',
+            'costomer_id' => 1,
+            'admin_id' => 1,
+        ]);
+
+        DB::table('items')->insert([
+            'id' => 1,
+            'qty' => 1,
+            'price' => 30000,
+            'transaction_id' => 1,
+            'barang_id' => 1,
+        ]);
+
+        DB::table('items')->insert([
+            'id' => 2,
+            'qty' => 2,
+            'price' => 60000,
+            'transaction_id' => 1,
+            'barang_id' => 1,
+        ]);
     }
 }
