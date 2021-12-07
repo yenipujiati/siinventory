@@ -6,13 +6,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class Unit extends Model
 {
 
-    protected $table = "item";
+    protected $table = "unit";
     protected $primaryKey = "id";
     protected $fillable = [
-        'barcode', 'name', 'category_id', 'unit_id', 'price', 'stock',
+        'name',
     ];
     public $timestamps = false;
 }

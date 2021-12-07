@@ -102,5 +102,50 @@ class DatabaseSeeder extends Seeder
             'transaction_id' => 1,
             'barang_id' => 1,
         ]);
+
+        DB::table('category')->insert([
+            'id'        => 1,
+            'name'      => 'Perabot',
+            
+        ]);
+
+        DB::table('category')->insert([
+            'id'        => 2,
+            'name'      => 'electronic',
+            
+        ]);
+
+        DB::table('category')->insert([
+            'id'        => 3,
+            'name'      => 'Makanan',            
+        ]);
+
+        DB::table('unit')->insert([
+            'id'        => 1,
+            'name'      => 'Kilogram',
+            
+        ]);
+
+        DB::table('unit')->insert([
+            'id'        => 2,
+            'name'      => 'Buah',
+            
+        ]);
+
+        DB::table('unit')->insert([
+            'id'        => 3,
+            'name'      => 'Liter',            
+        ]);
+
+        DB::table('item')->insert([
+            'id'            => 1,
+            'barcode'       => 'A1111',
+            'name'          => 'Meja',
+            'category_id'   => 1,
+            'unit_id'       => 2,
+            'price'         => '700000',
+            'stock'          => 0,
+        ]);
+        
     }
 }
