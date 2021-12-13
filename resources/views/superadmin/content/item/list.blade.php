@@ -12,8 +12,8 @@
             <tr>
                 <th scope="col">Barcode</th>
                 <th scope="col">Nama</th>
-                <th scope="col">Kategori</th> 
-                <th scope="col">Unit</th> 
+                <th scope="col">Kategori</th>
+                <th scope="col">Unit</th>
                 <th scope="col">Price</th>
                 <th scope="col">Stock</th>
                 <th scope="col">Action</th>
@@ -26,8 +26,8 @@
             <tr>
                 <td>{{$row->barcode}}</td>
                 <td>{{$row->name}}</td>
-                <td>{{$row->category_id}}</td>    
-                <td>{{$row->unit_id}}</td>             
+                <td>{{$row->category_name}}</td>
+                <td>{{$row->unit_name}}</td>
                 <td>{{$row->price}}</td>
                 <td>{{$row->stock}}</td>
                 <td>

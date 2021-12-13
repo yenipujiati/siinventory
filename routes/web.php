@@ -81,7 +81,7 @@ Route::group(['middleware' => 'auth:admin'], function (){
         Route::post('/category/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('admin.category.update');
 
         Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'delete'])->name('admin.category.delete');
-    
+
         //RouteUnit
         Route::get('/unit', [App\Http\Controllers\Admin\UnitController::class, 'index'])->name('admin.unit.index');
         Route::get('/unit/add', [App\Http\Controllers\Admin\UnitController::class, 'add'])->name('admin.unit.add');
@@ -91,10 +91,10 @@ Route::group(['middleware' => 'auth:admin'], function (){
         Route::post('/unit/update/{id}', [App\Http\Controllers\Admin\UnitController::class, 'update'])->name('admin.unit.update');
 
         Route::get('/unit/delete/{id}', [App\Http\Controllers\Admin\UnitController::class, 'delete'])->name('admin.unit.delete');
-    
+
         //RouteItem
         Route::get('/item', [App\Http\Controllers\Admin\ItemController::class, 'index'])->name('admin.item.index');
-        Route::get('/item/add', [App\Http\Controllers\SuperAdmin\ItemController::class, 'add'])->name('admin.item.add');
+        Route::get('/item/add', [App\Http\Controllers\SuperAdmin\ProductController::class, 'add'])->name('admin.item.add');
         Route::post('/item/store', [App\Http\Controllers\Admin\ItemController::class, 'store'])->name('admin.item.store');
 
         Route::get('/item/edit/{id}', [App\Http\Controllers\Admin\ItemController::class, 'edit'])->name('admin.item.edit');
@@ -165,7 +165,7 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::post('/transaction/store', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'store'])->name('superadmin.transaksi.store');
 
         Route::get('/transaction/detail/{id}', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'detail'])->name('superadmin.transaksi.detail');
-    
+
         //RouteCategory
         Route::get('/category', [App\Http\Controllers\SuperAdmin\CategoryController::class, 'index'])->name('superadmin.category.index');
         Route::get('/category/add', [App\Http\Controllers\SuperAdmin\CategoryController::class, 'add'])->name('superadmin.category.add');
@@ -175,7 +175,7 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::post('/category/update/{id}', [App\Http\Controllers\SuperAdmin\CategoryController::class, 'update'])->name('superadmin.category.update');
 
         Route::get('/category/delete/{id}', [App\Http\Controllers\SuperAdmin\CategoryController::class, 'delete'])->name('superadmin.category.delete');
-    
+
         //RouteUnit
         Route::get('/unit', [App\Http\Controllers\SuperAdmin\UnitController::class, 'index'])->name('superadmin.unit.index');
         Route::get('/unit/add', [App\Http\Controllers\SuperAdmin\UnitController::class, 'add'])->name('superadmin.unit.add');
@@ -185,16 +185,16 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::post('/unit/update/{id}', [App\Http\Controllers\SuperAdmin\UnitController::class, 'update'])->name('superadmin.unit.update');
 
         Route::get('/unit/delete/{id}', [App\Http\Controllers\SuperAdmin\UnitController::class, 'delete'])->name('superadmin.unit.delete');
-    
+
         //RouteItem
-        Route::get('/item', [App\Http\Controllers\SuperAdmin\ItemController::class, 'index'])->name('superadmin.item.index');
-        Route::get('/item/add', [App\Http\Controllers\SuperAdmin\ItemController::class, 'add'])->name('superadmin.item.add');
-        Route::post('/item/store', [App\Http\Controllers\SuperAdmin\ItemController::class, 'store'])->name('superadmin.item.store');
+        Route::get('/product', [App\Http\Controllers\SuperAdmin\ProductController::class, 'index'])->name('superadmin.item.index');
+        Route::get('/product/add', [App\Http\Controllers\SuperAdmin\ProductController::class, 'add'])->name('superadmin.item.add');
+        Route::post('/product/store', [App\Http\Controllers\SuperAdmin\ProductController::class, 'store'])->name('superadmin.item.store');
 
-        Route::get('/item/edit/{id}', [App\Http\Controllers\SuperAdmin\ItemController::class, 'edit'])->name('superadmin.item.edit');
-        Route::post('/item/update/{id}', [App\Http\Controllers\SuperAdmin\ItemController::class, 'update'])->name('superadmin.item.update');
+        Route::get('/product/edit/{id}', [App\Http\Controllers\SuperAdmin\ProductController::class, 'edit'])->name('superadmin.item.edit');
+        Route::post('/product/update/{id}', [App\Http\Controllers\SuperAdmin\ProductController::class, 'update'])->name('superadmin.item.update');
 
-        Route::get('/item/delete/{id}', [App\Http\Controllers\SuperAdmin\ItemController::class, 'delete'])->name('superadmin.item.delete');
+        Route::get('/product/delete/{id}', [App\Http\Controllers\SuperAdmin\ProductController::class, 'delete'])->name('superadmin.item.delete');
 
     });
 });

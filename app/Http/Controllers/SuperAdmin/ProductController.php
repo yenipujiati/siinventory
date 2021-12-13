@@ -5,23 +5,21 @@ namespace App\Http\Controllers\SuperAdmin;
 
 
 use App\Http\Controllers\Controller;
-use App\Models\Item;
+use App\Models\Product;
 use App\Models\Category;
 use App\Models\Unit;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
-class ItemController extends Controller
+class ProductController extends Controller
 {
     public function index()
     {
         Session::put('title', 'Data Item');
-        $item = Item::select('item.*','category.name as category_id')
-        ->join('category','category.id','=','item.category_id')->get();
-
-        $item = Item::select('item.*','unit.name as unit_id')
-        ->join('unit','unit.id','=','item.unit_id')->get();
-
+        $item = Product::select('products.*','category.name as category_name','unit.name as unit_name')
+        ->join('category','category.id','=','products.category_id')
+        ->join('unit','unit.id','=','products.unit_id')
+        ->get();
 
         return view('superadmin\content\item\list', compact('item'));
     }
@@ -36,13 +34,13 @@ class ItemController extends Controller
     }
 
     public function store(Request $request){
-        $item = new Item();
+        $item = new Product();
         $item->barcode =$request->barcode;
         $item->name = $request->name;
-        $item->price = $request->price;        
+        $item->price = $request->price;
         $item->category_id = $request->category_id;
-        $item->uunit_id = $request->unit_id;
-        
+        $item->unit_id = $request->unit_id;
+
         try {
             $item->save();
             return redirect(route('superadmin.item.index')) ->with('pesan-berhasil','Data berhasil ditambahkan!');
@@ -52,7 +50,7 @@ class ItemController extends Controller
     }
 
     public function delete($id){
-        $item = Item ::findOrFail($id);
+        $item = Product::findOrFail($id);
         try {
             $item->delete();
             return redirect(route('superadmin.item.index')) ->with('pesan-berhasil','Data berhasil Dihapus!');
@@ -65,19 +63,19 @@ class ItemController extends Controller
         Session::put('title', 'Edit Item');
         $category = Category::all();
         $unit = Category::all();
-        $item = Item::FindOrFail($id);
+        $item = Product::FindOrFail($id);
         return view('superadmin/content/item/edit', compact('item','category', 'unit'));
     }
 
     public function update(Request $request ,$id){
 
-        $item= Item :: findOrFail($id);
+        $item=Product :: findOrFail($id);
         $item->barcode =$request->barcode;
         $item->name = $request->name;
         $item->price = $request->price;
-        $item->stock = $request->stock;        
+        $item->stock = $request->stock;
         $item->category_id = $request->category_id;
-        $item->uunit_id = $request->unit_id;        
+        $item->unit_id = $request->unit_id;
 
         try {
             $item->save($request->all());

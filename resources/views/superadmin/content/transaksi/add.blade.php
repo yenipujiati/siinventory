@@ -18,12 +18,12 @@
                 </thead>
                 <tbody>
 
-                @foreach($barang_masuk as $row)
+                @foreach($product as $row)
 {{--                    @foreach($price as $row)--}}
                     <tr>
-                        <td class="barang_masuk_id">{{$row->id}}</td>
-                        <td class="barang_masuk_name">{{$row->name}}</td>
-                        <td class="barang_masuk_harga">{{$row->harga}}</td>
+                        <td class="product_id">{{$row->id}}</td>
+                        <td class="product_name">{{$row->name}}</td>
+                        <td class="product_price">{{$row->price}}</td>
                         <td>
                             <a href="#" class="addToCart">Tambah</a>
                         </td>
@@ -36,7 +36,8 @@
 
         </div>
         <div class="col-lg-7">
-            <form action="" method="post">
+            <form action="{{route('superadmin.transaksi.store')}}" method="post">
+                @csrf
                 <h4>Pembeli</h4>
 
                 <div class="form-group">
@@ -73,28 +74,41 @@
     </div>
     <script>
         $(function () {
+            delInit();
             $(".hidden").hide();
 
-            var barang_masuk_id = "";
-            var barang_masuk_name = "";
-            var barang_masuk_harga = "";
+            var product_id = "";
+            var product_name = "";
+            var product_price = "";
 
             $("#productTable").on("click",".addToCart",function () {
-                barang_masuk_id = $(this).closest('tr').find('.barang_masuk_id').text();
-                barang_masuk_name = $(this).closest('tr').find('.barang_masuk_name').text();
-                barang_masuk_harga = $(this).closest('tr').find('.barang_masuk_harga').text();
+                product_id = $(this).closest('tr').find('.product_id').text();
+                product_name = $(this).closest('tr').find('.product_name').text();
+                product_price = $(this).closest('tr').find('.product_price').text();
 
                 var rowCount = $('#myTable tbody tr').length;
 
                 var markup = "<tr>";
-                markup += "<td>"+barang_masuk_name+"</td>";
-                markup += "<td>"+barang_masuk_harga+"</td>";
-                markup += "<td><input type='number' name='send["+(rowCount+1)+"][item]' value='1'></td>";
-                markup += "<td><button type='button'><i class='fa fa-trash'</i></button></td>";
+                markup += "<td>"+product_name+"</td>";
+                markup += "<td>"+product_price+"</td>";
+
+                markup += "<td>";
+                markup += "<input type='number' name='send["+(rowCount+1)+"][product_qty]' value='1'>";
+                markup += "<input type='hidden' name='send["+(rowCount+1)+"][product_id]' value="+product_id+">";
+                markup += "</td>";
+
+                markup += "<td><button type='button' class='delete-row'>Hapus</button></td>";
                 markup += "</tr>";
 
                 $('#myTable tbody').append(markup);
+                delInit();
             });
+
+            function delInit() {
+                $(".delete-row").click(function () {
+                   $(this).parent().parent().remove();
+                });
+            }
         });
     </script>
 @endsection

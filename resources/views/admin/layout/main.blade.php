@@ -47,7 +47,7 @@
                 <i class="fas fa-fw  fa-user-lock fa-2x"></i>
                 <span>Admin</span></a>
         </li>
-        
+
         <li class="nav-item">
             <a class="nav-link" href="{{route('admin.suplier.index')}}">
                 <i class="fas fa-fw fa-truck fa-2x "></i>
@@ -88,7 +88,7 @@
                     <h6 class="collapse-header">- Custom Transactions -</h6>
                     <a class="collapse-item" href="{{route('admin.barang_masuk.index')}}">Sales</a>
                     <a class="collapse-item" href="#">Stock In</a>
-                    <a class="collapse-item" href="#">Stock Out</a>
+                    <a class="collapse-item" href="{{route('admin.transaksi.index')}}">Stock Out</a>
                 </div>
             </div>
         </li>
@@ -310,7 +310,7 @@
 
             </div>
 
-        </div> 
+        </div>
 
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">

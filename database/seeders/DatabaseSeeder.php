@@ -87,65 +87,65 @@ class DatabaseSeeder extends Seeder
             'admin_id' => 1,
         ]);
 
-        DB::table('items')->insert([
-            'id' => 1,
-            'qty' => 1,
-            'price' => 30000,
-            'transaction_id' => 1,
-            'barang_id' => 1,
-        ]);
-
-        DB::table('items')->insert([
-            'id' => 2,
-            'qty' => 2,
-            'price' => 60000,
-            'transaction_id' => 1,
-            'barang_id' => 1,
-        ]);
-
         DB::table('category')->insert([
             'id'        => 1,
             'name'      => 'Perabot',
-            
+
         ]);
 
         DB::table('category')->insert([
             'id'        => 2,
             'name'      => 'electronic',
-            
+
         ]);
 
         DB::table('category')->insert([
             'id'        => 3,
-            'name'      => 'Makanan',            
+            'name'      => 'Makanan',
         ]);
 
         DB::table('unit')->insert([
             'id'        => 1,
             'name'      => 'Kilogram',
-            
+
         ]);
 
         DB::table('unit')->insert([
             'id'        => 2,
             'name'      => 'Buah',
-            
+
         ]);
 
         DB::table('unit')->insert([
             'id'        => 3,
-            'name'      => 'Liter',            
+            'name'      => 'Liter',
         ]);
 
-        DB::table('item')->insert([
+        DB::table('products')->insert([
             'id'            => 1,
             'barcode'       => 'A1111',
             'name'          => 'Meja',
             'category_id'   => 1,
             'unit_id'       => 2,
             'price'         => '700000',
-            'stock'          => 0,
+            'stock'          => 10,
         ]);
-        
+
+        DB::table('items')->insert([
+            'id' => 1,
+            'qty' => 1,
+            'price' => 700000,
+            'transaction_id' => 1,
+            'product_id' => 1,
+        ]);
+
+        DB::table('items')->insert([
+            'id' => 2,
+            'qty' => 2,
+            'price' => 1400000,
+            'transaction_id' => 1,
+            'product_id' => 1,
+        ]);
+
     }
 }

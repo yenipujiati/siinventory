@@ -5,12 +5,13 @@ namespace App\Http\Controllers\SuperAdmin;
 
 
 use App\Http\Controllers\Controller;
-use App\Models\BarangMasuk;
 use App\Models\Item;
+use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Costomer;
+use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
@@ -35,9 +36,9 @@ class TransactionController extends Controller
             ->where('transactions.id',$id)
             ->first();
 
-        $item = Item::select('items.*','barang_masuk.name as barang_masuk_name','barang_masuk.harga as barang_masuk_harga')
+        $item = Item::select('items.*','products.name as product_name','products.price as product_price')
             ->join('transactions','transactions.id','=','items.transaction_id')
-            ->join('barang_masuk','barang_masuk.id','=','items.barang_id')
+            ->join('products','products.id','=','items.product_id')
             ->where('transactions.id',$id)
             ->get();
 
@@ -47,31 +48,35 @@ class TransactionController extends Controller
     public function add()
     {
         Session::put('title','Tambah Transaksi Baru');
-        $barang_masuk = BarangMasuk::all();
+        $product = Product::all();
         $costomer = Costomer::all();
 //        $price = $barang_masuk->harga/$barang_masuk->stock->first();
 
-        return view('superadmin\content\transaksi\add', compact('barang_masuk','costomer'));
+        return view('superadmin\content\transaksi\add', compact('product','costomer'));
     }
 
     public function store(Request $request){
-        //Menampilkan From tambah
-
-        //upload file
-        //1. Store file ke storage
-        //2.getHasNameFromFile
-
-        $transaksi = new Transaction();
-        $transaksi->date =$request->date;
-        $transaksi->costomer_id =$request->costomer_id;
-        try {
+        //insert ke dua table
+        DB::beginTransaction();
+//        try {
+            //semua proses insert didalam sini
+            $send = $request->send;
+            $costomer_id = $request->costomer_id;
+            $admin_id =$request->admin_id;
+            $transaksi = new Transaction();
+            $transaksi->date = date('Y-m-d H:i:s');
+            $transaksi->costomer_id  = $costomer_id;
+            $transaksi->admin_id  = $admin_id;
             $transaksi->save();
-            //pesan notifikasi sukses
-            return redirect(route('superadmin.transaksi.index')) ->with('pesan-berhasil','Data berhasil ditambahkan!');
-        }catch(\Exception $e){
-            //pesan notifikasi tidak sukses
-            return redirect(route('superadmin.transaksi.index'))->with('pesan-gagal','Data gagal ditambahkan');
-        }
+
+            dd($costomer_id);
+
+//            DB::commit();
+//            return redirect(route('superadmin.costomer.index'))->with('pesan','Transaksi Sukses');
+//        }catch (\Exception $e) {
+//            DB::rollBack();
+//            return redirect(route('superadmin.costomer.index'))->with('pesan','Transaksi Gagal');
+//        }
     }
 
     public function cetak()

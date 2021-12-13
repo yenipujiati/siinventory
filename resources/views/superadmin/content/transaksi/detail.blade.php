@@ -32,8 +32,8 @@
             @endphp
 
             <tr>
-                <td>{{$row->barang_masuk_name}}</td>
-                <td>{{\App\Util\Helper::rupiahConverter($row->barang_masuk_harga)}}</td>
+                <td>{{$row->product_name}}</td>
+                <td>{{\App\Util\Helper::rupiahConverter($row->product_price)}}</td>
                 <td>{{$row->qty}}</td>
                 <td>{{\App\Util\Helper::rupiahConverter($row->price)}}</td>
 

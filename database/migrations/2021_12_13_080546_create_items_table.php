@@ -18,10 +18,10 @@ class CreateItemsTable extends Migration
             $table->integer('qty');
             $table->integer('price');
             $table->unsignedBigInteger('transaction_id');
-            $table->unsignedBigInteger('barang_id');
+            $table->unsignedBigInteger('product_id');
             $table->timestamps();
             $table->foreign('transaction_id')->references('id')->on('transactions');
-            $table->foreign('barang_id')->references('id')->on('barang_masuk');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 
