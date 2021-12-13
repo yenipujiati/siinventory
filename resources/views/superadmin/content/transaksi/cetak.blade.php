@@ -1,48 +1,53 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @php
+        $total = 0;
+    @endphp
 
-   
-</head>
-<body>  
-    <h3 align="center"><b> List Data Admin</b></h3>
-<table border="1" width="100%" style="text-align:center;">
- 
-    
-        @csrf
-        <thead style="background: #2d2e33">
-        <tr>
-        <th scope="col">Nama</th>
-        <th scope="col">Email</th>
-        <th scope="col">Phone Number</th>
-        <th scope="col">Address</th>
-        <th scope="col">Industry</th>
-        </tr>
-        </thead>
-        <tbody>
+    <label>TRANSAKSI ID: {{$transaksi->id}}</label><br>
+    <label>TANGGAL: {{$transaksi->date}}</label><br>
+    <label>CUSTOMER: {{$transaksi->name}}</label>
+    <p></p>
 
-        @foreach($suplier as $row)
-    <tr>
-        <td>{{$row->name}}</td>
-        <td>{{$row->email}}</td>
-        <td>{{$row->phone_number}}</td>
-        <td>{{$row->address}}</td>
-        <td>{{$row->industry}}</td>
-    </tr>
+        <table border="1" style="width: 100%; border-collapse: collapse;">
+
+            <thead style="background: #2d2e33">
+            <tr>
+                <th>No</th>
+                <th>Produk</th>
+                <th>Harga</th>
+                <th>Jumlah</th>
+                <th>SubTotal</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @php
+                $no = 1;
+            @endphp
+
+            @foreach($item as $row)
+
+                @php
+                    $total += $row->price;
+                @endphp
+
+                <tr>
+                    <td>{{$no++}}</td>
+                    <td>{{$row->product_name}}</td>
+                    <td>{{\App\Util\Helper::rupiahConverter($row->product_price)}}</td>
+                    <td>{{$row->qty}}</td>
+                    <td>{{\App\Util\Helper::rupiahConverter($row->price)}}</td>
+
+                </tr>
+{{--                <td>--}}
+{{--                    <label>Total Bayar: {{\App\Util\Helper::rupiahConverter($total)}}</label></br>--}}
+{{--                </td>--}}
+
+            @endforeach
+
+            </tbody>
 
 
-        @endforeach
-           </tbody>
-    </table>
-    <script type="text/javascript">
-        window.print();
-
-    </script>
-    
-</body>
-</html>
-
+        </table>
+    <p></p>
+    <label>Total Bayar: {{\App\Util\Helper::rupiahConverter($total)}}</label></br>

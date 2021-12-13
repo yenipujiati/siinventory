@@ -1,21 +1,19 @@
 <?php
 
 
-namespace App\Http\Controllers\SuperAdmin;
+namespace App\Http\Controllers\Admin;
 
 
-use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Costomer;
 use App\Models\Item;
 use App\Models\Product;
 use App\Models\Transaction;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-use App\Models\Costomer;
 use Illuminate\Support\Facades\DB;
-use Mpdf\Mpdf;
+use Illuminate\Support\Facades\Session;
 
-class TransactionController extends Controller
+class TransactionController
 {
     public function index()
     {
@@ -25,7 +23,7 @@ class TransactionController extends Controller
             ->join('admins','admins.id','=','transactions.admin_id')
             ->get();
 
-        return view('superadmin\content\transaksi\list', compact('transaksi'));
+        return view('admin\content\transaksi\list', compact('transaksi'));
     }
 
     public function detail($id)
@@ -44,7 +42,7 @@ class TransactionController extends Controller
             ->where('transactions.id',$id)
             ->get();
 
-        return view('superadmin\content\transaksi\detail', compact('transaksi','item'));
+        return view('admin\content\transaksi\detail', compact('transaksi','item'));
     }
 
     public function add()
@@ -55,7 +53,7 @@ class TransactionController extends Controller
         $admin = Admin::all();
 //        $price = $barang_masuk->harga/$barang_masuk->stock->first();
 
-        return view('superadmin\content\transaksi\add', compact('product','costomer','admin'));
+        return view('admin\content\transaksi\add', compact('product','costomer','admin'));
     }
 
     public function store(Request $request){
@@ -84,10 +82,10 @@ class TransactionController extends Controller
                 $item->save();
             }
             DB::commit();
-            return redirect(route('superadmin.costomer.index'))->with('pesan','Transaksi Sukses');
+            return redirect(route('admin.costomer.index'))->with('pesan','Transaksi Sukses');
         }catch (\Exception $e) {
             DB::rollBack();
-            return redirect(route('superadmin.costomer.index'))->with('pesan','Transaksi Gagal');
+            return redirect(route('admin.costomer.index'))->with('pesan','Transaksi Gagal');
         }
     }
 
@@ -105,7 +103,7 @@ class TransactionController extends Controller
             ->where('transactions.id',$id)
             ->get();
 
-        $html = view('superadmin\content\transaksi\cetak', compact('transaksi','item'));
+        $html = view('admin\content\transaksi\cetak', compact('transaksi','item'));
         $mpdf = new Mpdf();
         $mpdf->WriteHTML($html);
         $mpdf->Output();

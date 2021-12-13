@@ -1,4 +1,4 @@
-@extends('superadmin/layout/main')
+@extends('admin/layout/main')
 @section('content')
 
     <div class="row">
@@ -19,7 +19,7 @@
                 <tbody>
 
                 @foreach($product as $row)
-{{--                    @foreach($price as $row)--}}
+                    {{--                    @foreach($price as $row)--}}
                     <tr>
                         <td class="product_id">{{$row->id}}</td>
                         <td class="product_name">{{$row->name}}</td>
@@ -29,14 +29,14 @@
                         </td>
                     </tr>
 
-{{--                    @endforeach--}}
+                    {{--                    @endforeach--}}
                 @endforeach
                 </tbody>
             </table>
 
         </div>
         <div class="col-lg-7">
-            <form action="{{route('superadmin.transaksi.store')}}" method="post">
+            <form action="{{route('admin.transaksi.store')}}" method="post">
                 @csrf
                 <h4>Pembeli</h4>
 
@@ -116,7 +116,7 @@
 
             function delInit() {
                 $(".delete-row").click(function () {
-                   $(this).parent().parent().remove();
+                    $(this).parent().parent().remove();
                 });
             }
         });

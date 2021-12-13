@@ -102,6 +102,15 @@ Route::group(['middleware' => 'auth:admin'], function (){
 
         Route::get('/item/delete/{id}', [App\Http\Controllers\Admin\ItemController::class, 'delete'])->name('admin.item.delete');
 
+        //Transaction
+        Route::get('/transaction', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transaksi.index');
+        Route::get('/transaction/add', [App\Http\Controllers\Admin\TransactionController::class, 'add'])->name('admin.transaksi.add');
+        Route::post('/transaction/Store', [App\Http\Controllers\Admin\TransactionController::class, 'store'])->name('admin.transaksi.store');
+        Route::get('/transaction/detail/{id}', [App\Http\Controllers\Admin\TransactionController::class, 'detail'])->name('admin.transaksi.detail');
+
+        Route::get('/transaction/cetak/{id}', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transaksi.cetak');
+
+
     });
 });
 
@@ -160,11 +169,13 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
         Route::get('/costomer/cetak', [App\Http\Controllers\SuperAdmin\CostomerController::class, 'cetak'])->name('superadmin.costomer.cetak');
 
         //Transaksi
-        Route::get('/transaction', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'index'])->name('admin.transaksi.index');
+        Route::get('/transaction', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'index'])->name('superadmin.transaksi.index');
         Route::get('/transaction/add', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'add'])->name('superadmin.transaksi.add');
         Route::post('/transaction/store', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'store'])->name('superadmin.transaksi.store');
 
         Route::get('/transaction/detail/{id}', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'detail'])->name('superadmin.transaksi.detail');
+
+        Route::get('/transaction/cetak/{id}', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'cetak'])->name('superadmin.transaksi.cetak');
 
         //RouteCategory
         Route::get('/category', [App\Http\Controllers\SuperAdmin\CategoryController::class, 'index'])->name('superadmin.category.index');

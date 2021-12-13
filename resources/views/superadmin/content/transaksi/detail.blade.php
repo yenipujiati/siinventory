@@ -38,7 +38,10 @@
                 <td>{{\App\Util\Helper::rupiahConverter($row->price)}}</td>
 
             </tr>
-
+            <td>
+                <label>Total Bayar: {{\App\Util\Helper::rupiahConverter($total)}}</label></br>
+                <a href="{{route('superadmin.transaksi.index')}}"><i class="fa fa-arrow-circle-left"></i>Kembali</a>
+            </td>
 
         @endforeach
 
@@ -47,9 +50,6 @@
 
     </table>
 
-        <td>
-            <label>Total Bayar: {{\App\Util\Helper::rupiahConverter($total)}}</label></br>
-            <a href="{{route('admin.transaksi.index')}}"><i class="fa fa-arrow-circle-left"></i>Kembali</a>
-        </td>
+
 
 @endsection
