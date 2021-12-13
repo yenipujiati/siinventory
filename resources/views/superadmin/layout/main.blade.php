@@ -92,8 +92,7 @@
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">- Custom Transactions -</h6>
-                    <a class="collapse-item" href="{{route('superadmin.barang_masuk.index')}}">Sales</a>
-                    <a class="collapse-item" href="#">Stock In</a>
+                    <a class="collapse-item" href="{{route('superadmin.barang_masuk.index')}}">Stock In</a>
                     <a class="collapse-item" href="{{route('admin.transaksi.index')}}">Stock Out</a>
                 </div>
             </div>
