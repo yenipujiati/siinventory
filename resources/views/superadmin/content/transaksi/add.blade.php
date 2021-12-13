@@ -47,6 +47,16 @@
                         @endforeach
                     </select>
                 </div>
+                <br>
+                <h4>Admin</h4>
+
+                <div class="form-group">
+                    <select name="admin_id" class="form-control">
+                        @foreach($admin as $row)
+                            <option value="{{$row->id}}">{{$row->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 &nbsp
                 <h4>Daftar Belanja</h4>
 

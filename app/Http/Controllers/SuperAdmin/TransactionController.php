@@ -5,6 +5,7 @@ namespace App\Http\Controllers\SuperAdmin;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Item;
 use App\Models\Product;
 use App\Models\Transaction;
@@ -50,15 +51,16 @@ class TransactionController extends Controller
         Session::put('title','Tambah Transaksi Baru');
         $product = Product::all();
         $costomer = Costomer::all();
+        $admin = Admin::all();
 //        $price = $barang_masuk->harga/$barang_masuk->stock->first();
 
-        return view('superadmin\content\transaksi\add', compact('product','costomer'));
+        return view('superadmin\content\transaksi\add', compact('product','costomer','admin'));
     }
 
     public function store(Request $request){
         //insert ke dua table
         DB::beginTransaction();
-//        try {
+        try {
             //semua proses insert didalam sini
             $send = $request->send;
             $costomer_id = $request->costomer_id;
@@ -69,14 +71,24 @@ class TransactionController extends Controller
             $transaksi->admin_id  = $admin_id;
             $transaksi->save();
 
-            dd($costomer_id);
+            foreach ($send as $i) {
+                $product = Product::where('id',$i['product_id'])->first();
+                $subTotal = $product->price * intval($i['product_qty']);
 
-//            DB::commit();
-//            return redirect(route('superadmin.costomer.index'))->with('pesan','Transaksi Sukses');
-//        }catch (\Exception $e) {
-//            DB::rollBack();
-//            return redirect(route('superadmin.costomer.index'))->with('pesan','Transaksi Gagal');
-//        }
+                $item = new Item();
+                $item->qty = intval($i['product_qty']);
+                $item->price = $subTotal;
+                $item->transaction_id  = $transaksi->id;
+                $item->product_id   = intval($i['product_id']);
+                $item->save();
+            }
+
+            DB::commit();
+            return redirect(route('superadmin.costomer.index'))->with('pesan','Transaksi Sukses');
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect(route('superadmin.costomer.index'))->with('pesan','Transaksi Gagal');
+        }
     }
 
     public function cetak()
