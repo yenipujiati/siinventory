@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Costomer;
 use Illuminate\Support\Facades\DB;
+use Mpdf\Mpdf;
 
 class TransactionController extends Controller
 {
@@ -91,10 +92,24 @@ class TransactionController extends Controller
         }
     }
 
-    public function cetak()
+    public function cetak($id)
     {
-        Session::put('title', 'Data Transaksi');
-        $transaksi = Transaction::get();
-        return view('superadmin\content\transaksi\cetak', compact('transaksi'));
+        $transaksi = Transaction::select('transactions.*','costomer.name','admins.name as admin_name')
+            ->join('costomer','costomer.id','=','transactions.costomer_id')
+            ->join('admins','admins.id','=','transactions.admin_id')
+            ->where('transactions.id',$id)
+            ->first();
+
+        $item = Item::select('items.*','products.name as product_name','products.price as product_price')
+            ->join('transactions','transactions.id','=','items.transaction_id')
+            ->join('products','products.id','=','items.product_id')
+            ->where('transactions.id',$id)
+            ->get();
+
+        $html = view('superadmin\content\transaksi\cetak', compact('transaksi','item'));
+        $mpdf = new Mpdf();
+        $mpdf->WriteHTML($html);
+        $mpdf->Output();
     }
+
 }

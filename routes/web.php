@@ -166,6 +166,8 @@ Route::group(['middleware' => 'auth:superadmin'], function (){
 
         Route::get('/transaction/detail/{id}', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'detail'])->name('superadmin.transaksi.detail');
 
+        Route::get('/transaction/cetak/{id}', [App\Http\Controllers\SuperAdmin\TransactionController::class, 'cetak'])->name('superadmin.transaksi.cetak');
+
         //RouteCategory
         Route::get('/category', [App\Http\Controllers\SuperAdmin\CategoryController::class, 'index'])->name('superadmin.category.index');
         Route::get('/category/add', [App\Http\Controllers\SuperAdmin\CategoryController::class, 'add'])->name('superadmin.category.add');

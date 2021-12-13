@@ -26,6 +26,7 @@
         <td>{{$row->admin_name}}</td>
         <td>
             <a href= "{{route('superadmin.transaksi.detail',$row->id)}}" data-toogle="tooltip" data-placement="top" title="View Detail"><i class="fa fa-eye"></i></a>
+            <a href= "{{route('superadmin.transaksi.cetak',$row->id)}}" data-toogle="tooltip" data-placement="top" title="PrintPDF"><i class="fa fa-print"></i></a>
             </td>
     </tr>
 
