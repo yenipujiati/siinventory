@@ -131,6 +131,16 @@ class DatabaseSeeder extends Seeder
             'stock'          => 10,
         ]);
 
+        DB::table('products')->insert([
+            'id'            => 2,
+            'barcode'       => 'A1112',
+            'name'          => 'Kulkas',
+            'category_id'   => 2,
+            'unit_id'       => 2,
+            'price'         => '2000000',
+            'stock'          => 100,
+        ]);
+
         DB::table('items')->insert([
             'id' => 1,
             'qty' => 1,

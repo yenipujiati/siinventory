@@ -3,13 +3,13 @@
 @php
     $total = 0;
 @endphp
-
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <label>Tanggal: {{$transaksi->date}}</label><br>
     <label>Pembeli: {{$transaksi->name}}</label>
-    <p></p>
+  </div>
 
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+  
 
     <table class="table table-striped table-hover">
 
