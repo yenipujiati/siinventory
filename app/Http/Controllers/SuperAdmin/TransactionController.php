@@ -49,7 +49,7 @@ class TransactionController extends Controller
 
     public function add()
     {
-        Session::put('title','Tambah Transaksi Baru');
+        Session::put('title','');
         $product = Product::all();
         $costomer = Costomer::all();
         $admin = Admin::all();
@@ -84,7 +84,7 @@ class TransactionController extends Controller
                 $item->save();
             }
             DB::commit();
-            return redirect(route('superadmin.costomer.index'))->with('pesan','Transaksi Sukses');
+            return view('superadmin\content\transaksi\onlinePayment');
         }catch (\Exception $e) {
             DB::rollBack();
             return redirect(route('superadmin.costomer.index'))->with('pesan','Transaksi Gagal');

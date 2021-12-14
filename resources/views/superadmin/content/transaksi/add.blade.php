@@ -1,6 +1,7 @@
 @extends('superadmin/layout/main')
 @section('content')
-
+<h3>Tambah Transaksi Baru</h3>
+<p></p>
     <div class="row">
         <div class="col-lg-5">
 

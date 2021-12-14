@@ -9,7 +9,7 @@
     <label>Pembeli: {{$transaksi->name}}</label>
   </div>
 
-  
+
 
     <table class="table table-striped table-hover">
 
@@ -38,13 +38,13 @@
                 <td>{{\App\Util\Helper::rupiahConverter($row->price)}}</td>
 
             </tr>
-            <td>
-                <label>Total Bayar: {{\App\Util\Helper::rupiahConverter($total)}}</label></br>
-                <a href="{{route('superadmin.transaksi.index')}}"><i class="fa fa-arrow-circle-left"></i>Kembali</a>
-            </td>
+
 
         @endforeach
-
+        <td>
+            <label>Total Bayar: {{\App\Util\Helper::rupiahConverter($total)}}</label></br>
+            <a href="{{route('superadmin.transaksi.index')}}"><i class="fa fa-arrow-circle-left"></i>Kembali</a>
+        </td>
         </tbody>
 
 
